@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究系統 | 人工智慧與知識系統實驗室</title>
+    <meta name="description" content="瀏覽KS Lab開發的各項智慧系統，包含學習系統、學習助教系統與ESG分析工具。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                <i class="fas fa-brain mr-2"></i>KS Lab
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400">首頁</a>
+                <a href="research-areas.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究方向</a>
+                <a href="systems.html" class="text-blue-600 dark:text-blue-400 font-semibold">研究系統</a>
+                <a href="team.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究團隊</a>
+                <a href="publications.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究成果</a>
+                <a href="location.html" class="hover:text-blue-600 dark:hover:text-blue-400">實驗室位置</a>
+            </div>
+            <div class="flex items-center">
+                <button id="dark-mode-toggle" class="mr-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon hidden"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
+            <a href="index.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">首頁</a>
+            <a href="research-areas.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究方向</a>
+            <a href="systems.html" class="block py-2 px-6 text-blue-600 dark:text-blue-400">研究系統</a>
+            <a href="team.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究團隊</a>
+            <a href="publications.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究成果</a>
+            <a href="location.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">實驗室位置</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16 md:py-24">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400">研究系統</h1>
+            <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">我們將理論轉化為實際應用，開發出多種創新的智慧系統。</p>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="mb-12 max-w-2xl mx-auto">
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    <i class="fas fa-search text-slate-400"></i>
+                </span>
+                <input type="text" id="system-search-input" placeholder="搜尋系統名稱或關鍵字..." class="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+        </div>
+
+        <div class="space-y-16">
+            <!-- Section: 學習系統 -->
+            <section id="learning-systems">
+                <h2 class="text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4">學習系統</h2>
+                <div id="systems-grid-learning" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Card: BookRoll -->
+                    <div class="system-card bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">BookRoll</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-4">由日本京都大學 Hiroaki Ogata 教授實驗室團隊所開發的線上電子書閱讀系統，提供學生練習和複習課程內容，老師也能監看學生的學習狀況，並能對學生的狀態進行分析。</p>
+                            <h4 class="font-semibold mb-2">功能：</h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
+                                <li><b>Assessment System：</b>提供學生練習選擇題</li>
+                                <li><b>Review System：</b>提供學生複習，題型有克漏字、簡答題</li>
+                                <li><b>Grafana：</b>將學生的學習log視覺化做成儀表板進行監控與分析</li>
+                                <li><b>Book_overview：</b>監看學生的學習狀況、閱讀課程狀態圖、marker紀錄及內容、memo紀錄及內容</li>
+                                <li><b>Intervention dashboard：</b>學生的個人儀表板，給予改善建議和狀態分析圖</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 mt-auto">
+                            <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 dark:hover:text-blue-300">查看文件 <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card: VisCode -->
+                    <div class="system-card bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">VisCode</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-4">一套結合JupyterHub與系統日誌分析系統(ELK)的系統。JupyterHub會在學生編碼時自動產生系統日誌，紀錄學習者執行程式碼的細節，再透過ELK進行視覺化，以便教師即時掌握教學情形，提供教學幫助。</p>
+                            <h4 class="font-semibold mb-2">核心元件：</h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
+                                <li><b>Elasticsearch：</b>儲存與快速搜尋元件</li>
+                                <li><b>Logstash：</b>系統日誌過濾技術</li>
+                                <li><b>Kibana：</b>即時視覺化套件</li>
+                                <li><b>JupyterHub日誌：</b>紀錄登入、啟閉時間、運行結果等資訊</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 mt-auto">
+                            <a href="#" class="font-semibold text-blue-500 hover:text-blue-700 dark:hover:text-blue-300">查看文件 <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: 學習助教系統 -->
+            <section id="tutor-systems">
+                <h2 class="text-3xl font-bold mb-8 border-l-4 border-green-500 pl-4">學習助教系統</h2>
+                <div id="systems-grid-tutor" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Card: PyChatbot -->
+                    <div class="system-card bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">PyChatbot</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-4">作為課後輔助學習工具，會自動抓取學生線上解題環境中的作答紀錄，分析總結學習狀況，給予適當建議。並使用ChatGPT輔助教師生成教材，以SBERT代替LSA，減輕教師負擔。</p>
+                            <h4 class="font-semibold mb-2">功能：</h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
+                                <li>自動總結評分</li>
+                                <li>程式設計求救</li>
+                                <li>作業繳交查詢</li>
+                                <li>我要請假</li>
+                                <li>點名結果查詢</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 mt-auto">
+                            <a href="#" class="font-semibold text-green-500 hover:text-green-700 dark:hover:text-green-300">查看文件 <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Card: PyTutor -->
+                    <div class="system-card bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">PyTutor</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-4">一個基於React.js和TypeScript的Chrome Extension，並以Flask作為後端開發平台的智慧助教系統工具。PyTutor利用ChatGPT模型生成解題提示和程式碼解釋，提供24小時不間斷的程式引導助教服務，幫助學生學習Python程式設計。</p>
+                        </div>
+                         <div class="bg-slate-50 dark:bg-slate-800/50 p-4 mt-auto">
+                            <a href="#" class="font-semibold text-green-500 hover:text-green-700 dark:hover:text-green-300">查看文件 <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: ESG -->
+            <section id="esg-systems">
+                <h2 class="text-3xl font-bold mb-8 border-l-4 border-purple-500 pl-4">ESG</h2>
+                <div id="systems-grid-esg" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Card: ALEX -->
+                    <div class="system-card bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">ALEX</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-4">本系統使用BERT模型，提供使用者即時句子標記(real time sentence marker)並產生視覺化圖表。另一功能配合ChatGPT利用輿情分析，找出ESG新聞核心話題，並可生成演講稿，幫助企業即時回應、減少風險並提高機遇。</p>
+                            <h4 class="font-semibold mb-2">功能：</h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
+                                <li><b>News Summary Generator：</b>迅速得知某時間段內的ESG流行詞及相關議題摘要。</li>
+                                <li><b>Cue Card Generator：</b>依據演講者名稱與職位，將議題內容生成一份演講提示稿。</li>
+                            </ul>
+                        </div>
+                         <div class="bg-slate-50 dark:bg-slate-800/50 p-4 mt-auto">
+                            <a href="#" class="font-semibold text-purple-500 hover:text-purple-700 dark:hover:text-purple-300">查看文件 <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- No results message -->
+        <div id="no-systems-found" class="hidden col-span-full text-center py-12">
+            <i class="fas fa-box-open text-5xl text-slate-400"></i>
+            <p class="mt-4 text-xl text-slate-500">找不到符合條件的系統。</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 dark:bg-slate-950 text-slate-300">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">KS Lab</h4>
+                    <p>Artificial Intelligence & Knowledge System Lab</p>
+                    <p class="text-sm text-slate-400 mt-2">國立中央大學</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">快速連結</h4>
+                    <ul>
+                        <li><a href="research-areas.html" class="hover:text-blue-400">研究方向</a></li>
+                        <li><a href="systems.html" class="hover:text-blue-400">研究系統</a></li>
+                        <li><a href="team.html" class="hover:text-blue-400">研究團隊</a></li>
+                        <li><a href="publications.html" class="hover:text-blue-400">研究成果</a></li>
+                        <li><a href="location.html" class="hover:text-blue-400">實驗室位置</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">聯絡我們</h4>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>桃園市中壢區中大路300號</p>
+                    <p><i class="fas fa-envelope mr-2"></i><a href="mailto:jhyang@csie.ncu.edu.tw" class="hover:text-blue-400">jhyang@csie.ncu.edu.tw</a></p>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-6 text-center text-sm text-slate-500">
+                <p>&copy; <span id="current-year"></span> KS Lab. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-xl transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

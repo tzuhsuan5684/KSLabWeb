@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究方向 | 人工智慧與知識系統實驗室</title>
+    <meta name="description" content="探索KS Lab在語言和知識處理、數據分析、機器學習、智慧教育及ESG等領域的研究方向。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                <i class="fas fa-brain mr-2"></i>KS Lab
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400">首頁</a>
+                <a href="research-areas.html" class="text-blue-600 dark:text-blue-400 font-semibold">研究方向</a>
+                <a href="systems.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究系統</a>
+                <a href="team.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究團隊</a>
+                <a href="publications.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究成果</a>
+                <a href="location.html" class="hover:text-blue-600 dark:hover:text-blue-400">實驗室位置</a>
+            </div>
+            <div class="flex items-center">
+                <button id="dark-mode-toggle" class="mr-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon hidden"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
+            <a href="index.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">首頁</a>
+            <a href="research-areas.html" class="block py-2 px-6 text-blue-600 dark:text-blue-400">研究方向</a>
+            <a href="systems.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究系統</a>
+            <a href="team.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究團隊</a>
+            <a href="publications.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究成果</a>
+            <a href="location.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">實驗室位置</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16 md:py-24">
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400">研究方向</h1>
+            <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">我們專注於四大核心領域，推動理論創新與實際應用。</p>
+        </header>
+
+        <div class="space-y-16">
+            <!-- Section 1: Language and Knowledge Processing -->
+            <section class="research-section">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                        <i class="fas fa-comments text-6xl text-purple-500"></i>
+                        <h2 class="text-3xl font-bold mt-4">語言和知識處理</h2>
+                    </div>
+                    <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">人工智慧</h3>
+                            <p class="text-slate-600 dark:text-slate-400">開發能夠模擬人類智能行為的演算法與模型。</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">知識系統</h3>
+                            <p class="text-slate-600 dark:text-slate-400">建構、表示與應用領域知識，實現專家級的推理與決策。</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">自然語言處理</h3>
+                            <p class="text-slate-600 dark:text-slate-400">使電腦能夠理解、解釋和生成人類語言。</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">大型語言模型</h3>
+                            <p class="text-slate-600 dark:text-slate-400">研究並應用於最前沿的LLMs，探索其在各領域的潛力。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Data Analysis and Machine Learning -->
+            <section class="research-section">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                        <i class="fas fa-chart-line text-6xl text-green-500"></i>
+                        <h2 class="text-3xl font-bold mt-4">數據分析和機器學習</h2>
+                    </div>
+                    <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">機器學習</h3>
+                            <p class="text-slate-600 dark:text-slate-400">設計演算法讓系統能從數據中自動學習並改進。</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">大數據</h3>
+                            <p class="text-slate-600 dark:text-slate-400">處理和分析大規模數據集，從中提取有價值的洞見。</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">資料科學</h3>
+                            <p class="text-slate-600 dark:text-slate-400">整合統計、計算機科學和領域知識來解決複雜問題。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Education and Learning -->
+            <section class="research-section">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                        <i class="fas fa-book-reader text-6xl text-orange-500"></i>
+                        <h2 class="text-3xl font-bold mt-4">教育和學習</h2>
+                    </div>
+                    <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">學習分析</h3>
+                            <p class="text-slate-600 dark:text-slate-400">分析學習者的數據，以理解和優化學習過程及其環境。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Application Fields -->
+            <section class="research-section">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                    <div class="md:w-1/3 text-center">
+                        <i class="fas fa-microscope text-6xl text-cyan-500"></i>
+                        <h2 class="text-3xl font-bold mt-4">應用場域</h2>
+                    </div>
+                    <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">教育領域</h3>
+                            <p class="text-slate-600 dark:text-slate-400">開發精準教育與個人化學習系統，提升學習成效。</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                            <h3 class="font-semibold text-xl mb-2">ESG 領域</h3>
+                            <p class="text-slate-600 dark:text-slate-400">運用AI分析企業永續報告，推動永續發展目標。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 dark:bg-slate-950 text-slate-300">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">KS Lab</h4>
+                    <p>Artificial Intelligence & Knowledge System Lab</p>
+                    <p class="text-sm text-slate-400 mt-2">國立中央大學</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">快速連結</h4>
+                    <ul>
+                        <li><a href="research-areas.html" class="hover:text-blue-400">研究方向</a></li>
+                        <li><a href="systems.html" class="hover:text-blue-400">研究系統</a></li>
+                        <li><a href="team.html" class="hover:text-blue-400">研究團隊</a></li>
+                        <li><a href="publications.html" class="hover:text-blue-400">研究成果</a></li>
+                        <li><a href="location.html" class="hover:text-blue-400">實驗室位置</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">聯絡我們</h4>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>桃園市中壢區中大路300號</p>
+                    <p><i class="fas fa-envelope mr-2"></i><a href="mailto:jhyang@csie.ncu.edu.tw" class="hover:text-blue-400">jhyang@csie.ncu.edu.tw</a></p>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-6 text-center text-sm text-slate-500">
+                <p>&copy; <span id="current-year"></span> KS Lab. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-xl transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
