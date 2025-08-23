@@ -5,25 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>研究團隊 | 人工智慧與知識系統實驗室</title>
     <meta name="description" content="認識KS Lab的指導教授、博士後研究員、專任助理、博士生與碩士生等優秀成員。">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome (for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
 
     <!-- Header / Navbar -->
-    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
                 <i class="fas fa-brain mr-2"></i>KS Lab
@@ -38,15 +30,11 @@
             </div>
             <div class="flex items-center">
                 <button id="dark-mode-toggle" class="mr-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon hidden"></i>
+                    <i class="fas fa-sun"></i><i class="fas fa-moon hidden"></i>
                 </button>
-                <button id="mobile-menu-button" class="md:hidden text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button id="mobile-menu-button" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
             <a href="index.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">首頁</a>
             <a href="research-areas.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究方向</a>
@@ -57,7 +45,6 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6 py-16 md:py-24">
         <header class="text-center mb-12 md:mb-16">
             <h1 class="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400">研究團隊</h1>
@@ -65,109 +52,52 @@
         </header>
 
         <!-- Supervisor Section -->
-        <section class="mb-16">
+        <section id="professor-section" class="mb-16">
             <h2 class="text-3xl font-bold text-center mb-8">指導教授</h2>
-            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-                <div class="flex-shrink-0">
-                    <img src="https://www.csie.ncu.edu.tw/media/pages/teacher/1/157294218-1662542177/jhyang.jpg" alt="楊鎮華教授" class="rounded-full w-36 h-36 md:w-48 md:h-48 object-cover border-4 border-blue-200 dark:border-blue-700">
-                </div>
-                <div class="text-left w-full">
-                    <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400">楊鎮華 教授</h3>
-                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                        <div>
-                            <h4 class="font-semibold text-lg mb-2 text-slate-800 dark:text-slate-100">主要職務</h4>
-                            <ul class="space-y-2 text-slate-600 dark:text-slate-300 list-none pl-0">
-                                <li><i class="fas fa-user-tie fa-fw mr-2 text-blue-500"></i>國立中央大學 資訊工程學系 講座教授 (2018~)</li>
-                                <li><i class="fas fa-user-tie fa-fw mr-2 text-blue-500"></i>國立中央大學 研發長 兼 高教深耕執行長 (2021~)</li>
-                                <li><i class="fas fa-user-tie fa-fw mr-2 text-blue-500"></i>前教育部資訊及科技教育司司長 (2013~2014)</li>
-                                <li><i class="fas fa-user-tie fa-fw mr-2 text-blue-500"></i>前國科會資訊教育學門召集人 (2012)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-lg mb-2 text-slate-800 dark:text-slate-100">榮譽獎項</h4>
-                            <ul class="space-y-2 text-slate-600 dark:text-slate-300 list-none pl-0">
-                                <li><i class="fas fa-award fa-fw mr-2 text-yellow-500"></i>國科會 傑出研究獎 (2010, 2017)</li>
-                                <li><i class="fas fa-award fa-fw mr-2 text-yellow-500"></i>教育部 教育專業獎章 (2015)</li>
-                                <li><i class="fas fa-award fa-fw mr-2 text-yellow-500"></i>中國電機工程學會會士 (2024)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="mt-6 text-slate-600 dark:text-slate-300"><i class="fas fa-envelope fa-fw mr-2"></i><a href="mailto:jhyang@csie.ncu.edu.tw" class="hover:text-blue-500">jhyang@csie.ncu.edu.tw</a></p>
-                </div>
-            </div>
+            <!-- 指導教授資訊將由 JS 動態載入 -->
         </section>
 
         <!-- Team Members Grid -->
         <div class="space-y-12">
-            <!-- Postdoctoral Researchers -->
-            <section>
+            <section id="postdocs-section">
                 <h2 class="text-2xl font-bold border-l-4 border-blue-500 pl-4 mb-6">博士後研究員</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Postdoc" alt="博士後研究員" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">王大明</h4>
-                        <p class="text-slate-500 dark:text-slate-400">大型語言模型應用</p>
-                    </div>
-                    <!-- Add more postdocs here -->
+                <div id="postdocs-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- 博士後研究員將由 JS 動態載入 -->
                 </div>
             </section>
             
-            <!-- Research Assistants -->
-            <section>
+            <section id="assistants-section">
                 <h2 class="text-2xl font-bold border-l-4 border-green-500 pl-4 mb-6">專任助理</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=RA" alt="專任助理" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">陳小美</h4>
-                        <p class="text-slate-500 dark:text-slate-400">專案管理與行政</p>
-                    </div>
-                     <!-- Add more assistants here -->
+                <div id="assistants-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- 專任助理將由 JS 動態載入 -->
                 </div>
             </section>
 
-            <!-- PhD Students -->
-            <section>
+            <section id="phd-students-section">
                 <h2 class="text-2xl font-bold border-l-4 border-purple-500 pl-4 mb-6">博士生</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=PhD" alt="博士生" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">李志強</h4>
-                        <p class="text-slate-500 dark:text-slate-400">學習分析與推薦系統</p>
-                    </div>
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=PhD" alt="博士生" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">張雅婷</h4>
-                        <p class="text-slate-500 dark:text-slate-400">ESG報告自動分析</p>
-                    </div>
-                    <!-- Add more PhD students here -->
+                <div id="phd-students-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- 博士生將由 JS 動態載入 -->
                 </div>
             </section>
 
-            <!-- Master Students -->
-            <section>
-                <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-4 mb-6">碩士生</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Master" alt="碩士生" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">林家豪</h4>
-                        <p class="text-slate-500 dark:text-slate-400">智慧寫作輔助</p>
-                    </div>
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Master" alt="碩士生" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">黃詩涵</h4>
-                        <p class="text-slate-500 dark:text-slate-400">聊天機器人</p>
-                    </div>
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Master" alt="碩士生" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">吳俊傑</h4>
-                        <p class="text-slate-500 dark:text-slate-400">深度學習</p>
-                    </div>
-                    <div class="team-member-card text-center">
-                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Master" alt="碩士生" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md">
-                        <h4 class="text-xl font-semibold">許欣怡</h4>
-                        <p class="text-slate-500 dark:text-slate-400">資料視覺化</p>
-                    </div>
-                    <!-- Add more Master students here -->
+            <section id="master-second-year-section">
+                <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-4 mb-6">碩二</h2>
+                <div id="master-second-year-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- 碩二生將由 JS 動態載入 -->
+                </div>
+            </section>
+
+            <section id="master-first-year-section">
+                <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-4 mb-6">碩一</h2>
+                <div id="master-first-year-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- 碩一生將由 JS 動態載入 -->
+                </div>
+            </section>
+            
+            <section id="master-zero-year-section">
+                <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-4 mb-6">碩零</h2>
+                <div id="master-zero-year-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- 碩零生將由 JS 動態載入 -->
                 </div>
             </section>
         </div>
@@ -204,12 +134,9 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-xl transition-opacity duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
