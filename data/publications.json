@@ -1,0 +1,42 @@
+[
+  {
+    "year": 2025,
+    "category": "論文",
+    "title": "應用於永續教育的大型語言模型",
+    "authors": "楊鎮華, 李志強",
+    "source": "期刊名稱或會議名稱",
+    "link": "#"
+  },
+  {
+    "year": 2024,
+    "category": "產學合作",
+    "title": "金融業ESG報告智慧分析系統開發",
+    "authors": "KS Lab, ABC 證券",
+    "source": "合作單位",
+    "link": "#"
+  },
+  {
+    "year": 2024,
+    "category": "論文",
+    "title": "A Framework for Precision Education using Learning Analytics",
+    "authors": "Chen, H. M., Yang, J. C.",
+    "source": "Computers & Education",
+    "link": "https://doi.org/..."
+  },
+  {
+    "year": 2023,
+    "category": "獎項",
+    "title": "全國大專校院資訊應用服務創新競賽 金牌",
+    "authors": "林家豪, 黃詩涵",
+    "source": "主辦單位",
+    "link": "#"
+  },
+  {
+    "year": 2023,
+    "category": "專案",
+    "title": "國科會計畫：以人為本之AI學習夥伴",
+    "authors": "楊鎮華",
+    "source": "國家科學及技術委員會",
+    "link": "#"
+  }
+]

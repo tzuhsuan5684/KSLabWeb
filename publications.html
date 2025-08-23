@@ -5,25 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>研究成果 | 人工智慧與知識系統實驗室</title>
     <meta name="description" content="瀏覽KS Lab的學術論文、研究專案、產學合作與獲獎紀錄。">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome (for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
 
     <!-- Header / Navbar -->
-    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
                 <i class="fas fa-brain mr-2"></i>KS Lab
@@ -38,15 +30,11 @@
             </div>
             <div class="flex items-center">
                 <button id="dark-mode-toggle" class="mr-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon hidden"></i>
+                    <i class="fas fa-sun"></i><i class="fas fa-moon hidden"></i>
                 </button>
-                <button id="mobile-menu-button" class="md:hidden text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button id="mobile-menu-button" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
             <a href="index.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">首頁</a>
             <a href="research-areas.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究方向</a>
@@ -57,397 +45,49 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6 py-16 md:py-24">
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400">研究成果</h1>
             <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">我們的研究成果豐碩，涵蓋國際期刊、會議論文、技術專案與多項榮譽。</p>
         </header>
 
-        <!-- Filters and Actions -->
-        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg mb-8 flex flex-col md:flex-row gap-4 items-center">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg mb-8 flex flex-col md:flex-row gap-4 items-center shadow">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:w-auto flex-grow">
-                <!-- Year Filter -->
-                <select id="filter-year" class="filter-select w-full bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select id="filter-year" class="w-full bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="all">所有年份</option>
-                    <option value="2009-2010">2010 & 2009</option>
-                    <option value="2004-2008">2004 ~ 2008</option>
-                    <option value="earlier">更早</option>
                 </select>
-                <!-- Category Filter -->
-                <select id="filter-category" class="filter-select w-full bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select id="filter-category" class="w-full bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="all">所有類別</option>
-                    <option value="論文">論文</option>
-                    <option value="專案">專案</option>
-                    <option value="產學合作">產學合作</option>
-                    <option value="獎項">獎項</option>
                 </select>
             </div>
             <div class="flex items-center gap-4 mt-4 md:mt-0">
                 <button id="clear-filters-btn" class="bg-slate-300 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500 text-slate-800 dark:text-slate-200 font-bold py-2 px-4 rounded-md transition-colors">
-                    <i class="fas fa-times mr-2"></i>清除篩選
+                    <i class="fas fa-times mr-2"></i>清除
                 </button>
                 <button id="export-csv-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition-colors">
-                    <i class="fas fa-file-csv mr-2"></i>匯出 CSV
+                    <i class="fas fa-file-csv mr-2"></i>匯出
                 </button>
             </div>
         </div>
 
-        <!-- Publications List -->
         <div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-lg shadow">
-            <table id="publications-table" class="w-full text-left align-top">
+            <table class="w-full text-left align-top">
                 <thead class="bg-slate-100 dark:bg-slate-700">
                     <tr>
                         <th class="p-4 font-semibold">標題與出處</th>
-                        <th class="p-4 font-semibold">作者</th>
+                        <th class="p-4 font-semibold hidden md:table-cell">作者</th>
                         <th class="p-4 font-semibold text-center">年份</th>
                         <th class="p-4 font-semibold text-center">類別</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- 2009-2010 Data -->
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">A Web 2.0-based collaborative annotation system for enhancing knowledge sharing in collaborative learning environments. <br><i class="text-slate-500 dark:text-slate-400">Computers & Education, 55(2), 752-766, (SSCI, IF: 2.617, ISI引用: 24)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Su, A.Y.S., Yang, S.J.H.*, Hwang, W.Y., Zhang, J.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Social learning networks: build mobile learning networks based on collaborative services.<br><i class="text-slate-500 dark:text-slate-400">Educational Technology & Society, 13(3), 78-92, (SSCI, IF: 1.067, ISI引用: 15)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, J.J.S., Yang, S.J.H.*, Huang, Y.M. & Hsiao, I.Y.T.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">The add-on impact of mobile applications in learning strategies: A review study.<br><i class="text-slate-500 dark:text-slate-400">Educational Technology & Society, 13(3), 3-11, (SSCI, IF: 1.067)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Jeng, Y.L., Wu, T.T., Huang, Y.M., Tan, Q., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">A Performance-oriented approach to workplace e-learning systems development.<br><i class="text-slate-500 dark:text-slate-400">Educational Technology & Society, 13 (4), 167–179, (SSCI, IF: 1.067)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Wang, M., Ran, W., Liao, J., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Applying DNA computation to intractable problems in social network analysis.<br><i class="text-slate-500 dark:text-slate-400">BioSystems, 101(3), 222-232, (SCI, IF: 1.477).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Chen, R.C.S., Yang, S.J.H.*.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Enhancing the precision of content analysis in content adaptation using entropy-based fuzzy reasoning.<br><i class="text-slate-500 dark:text-slate-400">Expert Systems with Applications, 37(8), 5706-5719. (SCI, IF: 2.908).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Chen, R.C.S., Yang, S.J.H.*, Zhang, J.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Improving annotation categorization performance through integrated social annotation computation.<br><i class="text-slate-500 dark:text-slate-400">Expert Systems with Applications, 37(12), 8736-8744, (SCI, IF: 2.908).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Su, A.Y.S., Yang, S.J.H.*</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Improving fuzzy knowledge integration with particle swarm optimization.<br><i class="text-slate-500 dark:text-slate-400">Expert Systems with Applications, 37(12), 8770-8783, (SCI, IF: 2.908).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, A., Yang, S.J.H.*, Wang, M., Tsai, J.J.P.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Perceived level of knowledge sharing via blog: a case study of blog perceived usefulness.<br><i class="text-slate-500 dark:text-slate-400">International Journal on Digital Learning Technology, 2(2), 22-35.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, J.J.S., Ke, M.C.C., Yang, SJ.H.*, Fu, E.S.J.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Using description logics for the provision of context-driven content adaptation services.<br><i class="text-slate-500 dark:text-slate-400">International Journal of Systems and Service-Oriented Engineering, 1(1), 96-129.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Zhang, J., Huang, J., Tsai, J.J.P.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">A social bookmarking-based people search service: building communities of practice with collective intelligence.<br><i class="text-slate-500 dark:text-slate-400">International Journal of Organizational and Collective Intelligence, 1(2), 83-95.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, J.J.S., Yang, S.J.H.*, Chen, J.C.C., Li, I.Y.S., Hsiao, I.Y.T.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Situational language teaching in ubiquitous learning environments.<br><i class="text-slate-500 dark:text-slate-400">Knowledge management and e-Learning. 2(3), 312-327.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, A.F.M., Yang*, S.J.H., Hwang, G.-J.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Guest editorial: Advanced learning technologies, performance technologies, open contents, and standards.<br><i class="text-slate-500 dark:text-slate-400">Knowledge management and e-Learning. 2(3), 203-209.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Klett, F., Nakabayashi, K., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2010</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Learning styles and cognitive traits-their relationship and its benefits in web-based educational systems.<br><i class="text-slate-500 dark:text-slate-400">Computers in Human Behavior, 25(6), 1280-1289, (SSCI, IF: 1.677, ISI引用: 1)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Graf, G., Liu, T.C., Kinshuk, Chen, N.S., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">A context-aware ubiquitous learning environment for conducting complex science experiments.<br><i class="text-slate-500 dark:text-slate-400">Computers & Education, 53(2), 402-413, (SSCI, IF: 2.059, ISI引用: 18)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Hwang, G.J., Yang T.C., Tsai, C.C., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Guest Editorial: Web 2.0 for interactive e-learning.<br><i class="text-slate-500 dark:text-slate-400">Interactive Learning Environments, 17(4), 257-259. (SSCI, IF: 0.973)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, R.H.Y., Yang, S.J.H. Tsai, C.C.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Improving peer-to-peer search performance through intelligent social search.<br><i class="text-slate-500 dark:text-slate-400">Expert Systems with Application, 36(7), 10312-10324, (SCI, IF: 2.908)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Zhang, J., Lin, L., Tsai, J.J.P.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">An optimal QoS-based Web services selection scheme.<br><i class="text-slate-500 dark:text-slate-400">Information Sciences, 179(19), 3309-3322. (SCI, IF: 3.291, ISI引用: 18)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, A., Lan, C.W, Yang, S.J.H.*</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">SOA-based content delivery model for mobile internet navigation.<br><i class="text-slate-500 dark:text-slate-400">International Journal of Artificial Intelligence Tools, 18(1), 141-161. (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Zhang, J., Tsai, J.J.P., Huang, A.F.M.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Supporting CSCW and CSCL with Intelligent Social Grouping Services.<br><i class="text-slate-500 dark:text-slate-400">International Journal of Software Science and Computational Intelligence, 1(1), 51-63.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Tsai, J.J.P., Zhang, J., Huang, J.J.S., Yang, S.J.H.*</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Editorial: Knowledge management and e-Learning.<br><i class="text-slate-500 dark:text-slate-400">Knowledge management and e-Learning. 1(1). 1-3.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Wang, M., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Guest Editorial: Integration of Knowledge Management with E-Learning.<br><i class="text-slate-500 dark:text-slate-400">International Journal of Internet & Enterprise Management. 6(3). 93-95.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Wang, M., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2009-2010" data-category="論文">
-                        <td class="p-4 font-medium">Situational Mashups for Ubiquitous Learning.<br><i class="text-slate-500 dark:text-slate-400">International Journal on Digital Learning Technology. 1(3), 140-160.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Huang, A.F.M., Yang, S.J.H.*</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2009</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-
-                    <!-- 2004-2008 Data -->
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">A social network-based system for supporting interactive collaboration in knowledge sharing over peer-to-peer network. <br><i class="text-slate-500 dark:text-slate-400">International Journal of Human-Computer Studies, 66(1). 36-50, (SSCI, IF: 1.769, ISI引用: 24)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Chen, I.Y.L.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2008</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Guest Editorial: Context-aware ubiquitous learning. <br><i class="text-slate-500 dark:text-slate-400">Educational Technology and Society, 11(2). 1-2. (SSCI, IF: 0.904, ISI引用: 17)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, T. Okamoto, S.S. Tseng</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2008</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Criteria, strategies and research issues of context-aware ubiquitous learning. <br><i class="text-slate-500 dark:text-slate-400">Educational Technology & Society, 11(2). 16-26. (SSCI, IF: 0.904, ISI引用: 28)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Hwang, G.J., Tsai, C.C., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2008</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Designing a self-contained group area network for ubiquitous learning. <br><i class="text-slate-500 dark:text-slate-400">Educational Technology & Society, 11(2). 81-91. (SSCI, IF: 0.904, ISI引用: 14)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Chen, N.S., Kinshuk, Wei, C.W., Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2008</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">A JESS enabled context elicitation system for providing context-aware Web services. <br><i class="text-slate-500 dark:text-slate-400">Expert Systems with Applications, 34(4). 2254-2266. (SCI, IF: 2.596, ISI引用: 15)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Zhang, J., Chen, I.Y.L.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2008</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Applying Web Page Adaptation Technique to the Augmentation of Mobile Learning. <br><i class="text-slate-500 dark:text-slate-400">Journal of Research and Practice in Technology Enhanced Learning. 3(3). 253-273.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Zhang, J., Huang, A.F.M.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2008</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Enhancing quality of e-learning in virtual learning communities by finding quality learning content and trustworthy collaborators. <br><i class="text-slate-500 dark:text-slate-400">Educational Technology and Society, 10(2). 84-95, (SSCI, IF: 0.475, ISI引用: 4)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Chen, I.Y.L., Kinshuk, Chen, N.S.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2007</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Enhancing pervasive web accessibility with rule-based adaptation strategy. <br><i class="text-slate-500 dark:text-slate-400">Expert Systems with Applications, 332(4). 1154-1167, May, 2007, (SCI, ISI引用: 7)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, N.W.Y. Shao.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2007</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">A UOI-based content adaptation method for improving web content accessibility in the mobile Internet. <br><i class="text-slate-500 dark:text-slate-400">794-807, ETRI Journal (Electronics and Telecommunications Research Institute), 29(6). (SCI, IF: 0.936, ISI引用: 6)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, J. Zhang, R. Chen, and N. Shao.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2007</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Ubiquitous provision of context-aware web services. <br><i class="text-slate-500 dark:text-slate-400">International Journal of Web Service Research, 4(4). 83-103, (SCIE, EI, ISI引用: 9)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, J. Zhang, I.Y.L. Chen.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2007</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Trustworthy service-oriented business process integration. <br><i class="text-slate-500 dark:text-slate-400">International Journal of Simulation and Process Modeling, 3(1). 6-12, Jan. 2007 (EI).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, B.C.W. Lan and J.Y. Chung.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2007</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">The Identification of Communities of Practice in Web 2.0, <br><i class="text-slate-500 dark:text-slate-400">Journal of Scientific and Technological Studies, 41(1). 1-15, April 2007</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, I.Y.L. Chen, and J. Huang</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2007</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Context aware ubiquitous learning environments for peer-to-peer collaborative learning. <br><i class="text-slate-500 dark:text-slate-400">Educational Technology and Society, 9(1), 188-201, (SSCI, IF: 0.469, ISI引用: 63).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2006</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Developing a medical image content repository for e-learning. <br><i class="text-slate-500 dark:text-slate-400">Journal of Digital Imaging, 19(3), 207-215. (SCI, IF: 1.107, ISI引用: 5)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Hsiao, C.H., T.C. Hsu, J.N. Chang, Yang, S.J.H., S.T. Young, and W. Chu</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2006</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">An ontology based content model for intelligent Web content access services. <br><i class="text-slate-500 dark:text-slate-400">International Journal of Web Service Research, 3(2), 59-78, (SCIE, EI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.* and Shao, N.W.Y.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2006</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Composition and evaluation of trustworthy Web services. <br><i class="text-slate-500 dark:text-slate-400">International Journal of Web and Grid Services, 2(1), 5-24, (EI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, J.S.F. Hsieh, B.C.W. Lan and J.Y. Chung.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2006</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">A few design perspectives on one-on-one digital classroom environment. <br><i class="text-slate-500 dark:text-slate-400">Journal of Computer Assisted Learning, 21(3), 181-189, (SSCI, IF: 0.556, ISI引用: 20)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Liang, J.K., T. Liu, H. Wang, B. Chang, Y. Deng, Yang, S.J.H., C. Chou, H. Ko, Yang, S.J.H., T. Chan.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2005</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Context Aware Service Oriented Architecture for Web Based Learning. <br><i class="text-slate-500 dark:text-slate-400">Journal of Advanced Technology for Learning, 2(4), 216-222.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, B.C.W. Lan, B.J.D. Wu, and A.C.N. Chang.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2005</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">Ontological enabled annotations and knowledge management for collaborative learning in virtual learning community. <br><i class="text-slate-500 dark:text-slate-400">Educational Technology and Society, 7(4), 70-81, (SSCI, IF: 0.267, ISI引用: 31)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H.*, Chen, I., Shao, N.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2004</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="2004-2008" data-category="論文">
-                        <td class="p-4 font-medium">A Framework of Three Learning Activity Levels for Enhancing the Usability and Feasibility of Wireless Learning Environments. <br><i class="text-slate-500 dark:text-slate-400">Journal of Educational Computing Research, 30(4), 309-329.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Wang, H.Y., T.C. Liu, C.Y. Chou, J.K. Liang, T.W. Chan, and Yang, S.J.H.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2004</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-
-                    <!-- Earlier Data -->
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Fuzzy Rule Base Systems Verification Using High Level Petri Nets. <br><i class="text-slate-500 dark:text-slate-400">IEEE Trans. on Knowledge and Data Engineering, vol. 15, no. 2, pp. 457-473, March-April 2003. (SCI, , ISI引用: 20)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H., J.J.P. Tsai, and C.C. Chen.</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2003</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">An Integrated Approach for Workflow Process Modeling and Analysis Using UML and Petri Nets, <br><i class="text-slate-500 dark:text-slate-400">MIS Review, vol. 11, pp. 47-75, 2003.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H., C.C. Chen</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2003</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Development of Wireless Embedded Systems Using Component Based Software, <br><i class="text-slate-500 dark:text-slate-400">International Journal on Software Engineering and Knowledge Engineering, vol. 12, no. 2, pp. 135-153, April, 2002 (SCI).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H., J.J.P. Tsai, I.Chen</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2002</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Building XML-Based Unified User Interface System under J2EE Architecture, <br><i class="text-slate-500 dark:text-slate-400">Annals of Software Engineering Journal, Vol. 12, pp. 241-256, 2001. (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H., I. Chen, C.C. Chen, C.H. Chu, H.W. Shen, C.W. Lan</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2001</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Application of the Software Maintenance Predicaate/Transition Net (SMPrT-Net) to the Change Control Process of Maintenance, <br><i class="text-slate-500 dark:text-slate-400">Journal of Chinese Institute of Engineering. Vol. 23, No. 5, pp. 591-606. (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">W. Chu, C.H. Chang, and Yang, S.J.H., 2000</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">2000</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Specifying and Verifying Temporal Behavior of High Assurance Systems Using Reachability Tree Logic, <br><i class="text-slate-500 dark:text-slate-400">International Journal of Software Engineering and Knowledge Engineering vol. 9, no. 2, April 1999, pp. 233-249. (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H., W. Chu, and J. Lee, April 1999</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">1999</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">A Petri-nets-based Approach for Workflow and Process Automation. <br><i class="text-slate-500 dark:text-slate-400">International Journal of Artificial Intelligence Tools, vol. 8, no. 2, April 1999, pp. 193-205, (SCIE, EI).</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">Yang, S.J.H., C.C. Chen, April 1999</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">1999</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Fuzzy Logic as a Basis for Reusing Task-based Specifications, <br><i class="text-slate-500 dark:text-slate-400">International Journal of Intelligent Systems, vol. 14, pp. 331-357, (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">L.F. Lai, J. Lee, and Yang, S.J.H., 1999</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">1999</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">A Formal Model to Object-Oriented Program Reuse, <br><i class="text-slate-500 dark:text-slate-400">Journal of Computers, vol. 8, no. 3., Sept. 1996, pp. 11-20.</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">W.C. Chu, C.W. Lu, and Yang, S.J.H., Sept. 1996</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">1996</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">A System for Visualizing and Debugging Distributed Real-Time Systems with Monitoring Support, <br><i class="text-slate-500 dark:text-slate-400">International Journal of Software Engineering and Knowledge Engineering, vol. 6, no. 3, Sept. 1996, pp. 355-400. (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">J.J.P. Tsai, Y. Bi, and Yang, S.J.H., Sept. 1996</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">1996</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Debugging for Timing Constraint Violations, <br><i class="text-slate-500 dark:text-slate-400">IEEE Software, vol. 13, no. 2, pp. 89-99. (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">J.J.P. Tsai, Y. Bi, and Yang, S.J.H., Mar. 1996</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">1996</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr class="publication-item border-t border-slate-200 dark:border-slate-700" data-year="earlier" data-category="論文">
-                        <td class="p-4 font-medium">Timing Constraint Petri Nets and Their Application to Schedulability Analysis of Real-Time Systems Specification, <br><i class="text-slate-500 dark:text-slate-400">IEEE Trans. on Software Engineering, vol. 21, no. 1, pp. 32-49. (SCI)</i></td>
-                        <td class="p-4 text-slate-600 dark:text-slate-400">J.J.P. Tsai, Yang, S.J.H., and Y.H. Chang, Jan. 1995</td>
-                        <td class="p-4 text-center text-slate-600 dark:text-slate-400">1995</td>
-                        <td class="p-4 text-center"><span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">論文</span></td>
-                    </tr>
-                    <tr id="no-publications-found" class="hidden">
-                        <td colspan="4" class="text-center p-8 text-slate-500">
-                            <i class="fas fa-search text-4xl mb-3"></i>
-                            <p>找不到符合篩選條件的成果。</p>
-                        </td>
-                    </tr>
+                <tbody id="publications-tbody">
+                    <!-- 研究成果列表將由 JS 動態載入 -->
                 </tbody>
             </table>
+            <div id="no-publications-found" class="hidden text-center p-8 text-slate-500">
+                <i class="fas fa-search text-4xl mb-3"></i>
+                <p>找不到符合篩選條件的成果。</p>
+            </div>
         </div>
     </main>
 
@@ -482,12 +122,9 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-xl transition-opacity duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
