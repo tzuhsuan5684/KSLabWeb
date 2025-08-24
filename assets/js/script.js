@@ -97,7 +97,7 @@ async function loadTeamData() {
             renderTeamMembers('master-zero-year-grid', data.master_students.zero_year);
         }
 
-        renderAlumni('alumni-grid', data.alumni);
+        renderAlumniByYear('alumni-groups-container', data.alumni);
 
         // 設定篩選器
         setupTeamFilters();
@@ -118,9 +118,7 @@ function setupTeamFilters() {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // 移除所有按鈕的 active 狀態
             filterButtons.forEach(btn => btn.classList.remove('active-filter'));
-            // 為點擊的按鈕加上 active 狀態
             button.classList.add('active-filter');
 
             const filter = button.dataset.filter;
@@ -143,12 +141,14 @@ function renderProfessor(professor) {
 
     const titlesHTML = professor.titles.map(t => `<li><i class="${t.icon} fa-fw mr-2 text-blue-500"></i>${t.text}</li>`).join('');
     const honorsHTML = professor.honors.map(h => `<li><i class="${h.icon} fa-fw mr-2 text-yellow-500"></i>${h.text}</li>`).join('');
+    
+    const positionClass = professor.img_position ? `object-position-${professor.img_position}` : '';
 
     section.innerHTML = `
         <h2 class="text-3xl font-bold text-center mb-8">指導教授</h2>
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-            <div class="flex-shrink-0">
-                <img src="${professor.image}" alt="${professor.name}" class="rounded-full w-36 h-36 md:w-48 md-h-48 object-cover border-4 border-blue-200 dark:border-blue-700">
+            <div class="flex-shrink-0 w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-blue-200 dark:border-blue-700 overflow-hidden">
+                <img src="${professor.image}" alt="${professor.name}" class="w-full h-full object-cover ${positionClass}">
             </div>
             <div class="text-left w-full">
                 <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400">${professor.name}</h3>
@@ -184,9 +184,13 @@ function renderTeamMembers(gridId, members) {
     }
     
     section.style.display = ''; 
-    grid.innerHTML = members.map(member => `
+    grid.innerHTML = members.map(member => {
+        const positionClass = member.img_position ? `object-position-${member.img_position}` : '';
+        return `
         <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full">
-            <img src="${member.image}" alt="${member.name}" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+            <div class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md overflow-hidden">
+                <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover ${positionClass}">
+            </div>
             <div class="flex-grow mb-4">
                 <h4 class="text-xl font-semibold">${member.name}</h4>
             </div>
@@ -206,34 +210,65 @@ function renderTeamMembers(gridId, members) {
                 </div>` : ''}
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
-function renderAlumni(gridId, alumni) {
-    const grid = document.getElementById(gridId);
-    const section = grid ? grid.closest('section') : null;
-
-    if (!grid || !section) return;
-
-    if (!alumni || alumni.length === 0) {
-        section.style.display = 'none';
+// ===== UPDATED FUNCTION: Renders alumni grouped by year from the new data structure =====
+function renderAlumniByYear(containerId, alumniData) {
+    const container = document.getElementById(containerId);
+    if (!container || !alumniData || Object.keys(alumniData).length === 0) {
+        const mainContainer = document.getElementById('alumni-container');
+        if(mainContainer) mainContainer.style.display = 'none';
         return;
     }
 
-    section.style.display = '';
-    grid.innerHTML = alumni.map(member => `
-        <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full">
-            <img src="${member.image}" alt="${member.name}" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover" onerror="this.src='assets/images/team/placeholder.png';">
-            <div class="flex-grow">
-                <h4 class="text-xl font-semibold">${member.name}</h4>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">${member.grad_year}年畢業</p>
+    // 1. Get years from object keys and sort them descending
+    const sortedYears = Object.keys(alumniData).sort((a, b) => b - a);
+
+    // 2. Clear previous content and build new HTML
+    container.innerHTML = '';
+
+    sortedYears.forEach(year => {
+        const members = alumniData[year];
+        if (members.length === 0) return; // Skip empty year groups
+
+        // Create a new <section> for each year
+        const yearSection = document.createElement('section');
+
+        // Create title for the year
+        const title = document.createElement('h2');
+        title.className = "text-2xl font-bold border-l-4 border-teal-500 pl-4 mb-6";
+        title.textContent = `${year}級 畢業系友`;
+        
+        // Create grid for the members of this year
+        const grid = document.createElement('div');
+        grid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8";
+        
+        grid.innerHTML = members.map(member => {
+            const positionClass = member.img_position ? `object-position-${member.img_position}` : '';
+            return `
+            <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full">
+                <div class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md overflow-hidden">
+                    <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover ${positionClass}" onerror="this.src='assets/images/team/placeholder.png';">
+                </div>
+                <div class="flex-grow">
+                    <h4 class="text-xl font-semibold">${member.name}</h4>
+                </div>
+                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">${member.company}</p>
+                    <p class="text-slate-600 dark:text-slate-300">${member.title}</p>
+                </div>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <p class="font-semibold text-blue-600 dark:text-blue-400">${member.company}</p>
-                <p class="text-slate-600 dark:text-slate-300">${member.title}</p>
-            </div>
-        </div>
-    `).join('');
+            `;
+        }).join('');
+
+        // Append title and grid to the new section for this year
+        yearSection.appendChild(title);
+        yearSection.appendChild(grid);
+
+        // Append the new section for this year to the main container
+        container.appendChild(yearSection);
+    });
 }
 
 

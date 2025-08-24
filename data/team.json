@@ -15,7 +15,8 @@
     ],
     "email": "jhyang@csie.ncu.edu.tw",
     "office": "工程五館 E5-A408",
-    "ext": "03-4227151-35308"
+    "ext": "03-4227151-35308",
+    "img_position": "top"
   },
   "postdocs": [
     {
@@ -39,7 +40,8 @@
       "image": "assets/images/team/昱瑋.jpg",
       "email": "tseng19831012@gmail.com",
       "office": "工程五館 E5-B320",
-      "ext": "35353"
+      "ext": "35353",
+      "img_position": "top"
     },
     {
       "name": "許林慶",
@@ -69,7 +71,8 @@
       "image": "assets/images/team/梁豪友.jpg",
       "email": "s102598055@gmail.com",
       "office": "工程五館 E5-B321-1",
-      "ext": "35356"
+      "ext": "35356",
+      "img_position": "top"
     }
   ],
   "master_students": {
@@ -151,7 +154,8 @@
         "image": "assets/images/team/譚聲全.jpg",
         "email": "sheng.c.tan@gmail.com",
         "office": "工程五館 E5-B321-1",
-        "ext": "35353"
+        "ext": "35353",
+        "img_position": "bottom"
       },
       {
         "name": "呂訢誠",
@@ -184,27 +188,42 @@
     ],
     "zero_year": []
   },
-  "alumni": [
-    {
-      "name": "陳大明",
-      "grad_year": 2022,
-      "image": "assets/images/team/placeholder.png",
-      "company": "Google",
-      "title": "軟體工程師"
-    },
-    {
-      "name": "林小美",
-      "grad_year": 2021,
-      "image": "assets/images/team/placeholder.png",
-      "company": "台灣積體電路製造",
-      "title": "資料科學家"
-    },
-    {
-      "name": "張三",
-      "grad_year": 2023,
-      "image": "assets/images/team/placeholder.png",
-      "company": "聯發科技",
-      "title": "AI 工程師"
-    }
-  ]
+  "alumni": {
+    "112": [
+      {
+        "name": "王五",
+        "image": "assets/images/team/placeholder.png",
+        "company": "Nvidia",
+        "title": "Deep Learning Engineer"
+      },
+      {
+        "name": "趙六",
+        "image": "assets/images/team/placeholder.png",
+        "company": "Amazon Web Services",
+        "title": "Cloud Engineer"
+      }
+    ],
+    "111": [
+      {
+        "name": "陳大明",
+        "image": "assets/images/team/placeholder.png",
+        "company": "Google",
+        "title": "軟體工程師"
+      }
+    ],
+    "110": [
+      {
+        "name": "林小美",
+        "image": "assets/images/team/placeholder.png",
+        "company": "台灣積體電路製造",
+        "title": "資料科學家"
+      },
+      {
+        "name": "張三",
+        "image": "assets/images/team/placeholder.png",
+        "company": "聯發科技",
+        "title": "AI 工程師"
+      }
+    ]
+  }
 }
