@@ -238,7 +238,7 @@ function renderAlumniByYear(containerId, alumniData) {
         // Create title for the year
         const title = document.createElement('h2');
         title.className = "text-2xl font-bold border-l-4 border-teal-500 pl-4 mb-6";
-        title.textContent = `${year}級 畢業系友`;
+        title.textContent = `${year}級`;
         
         // Create grid for the members of this year
         const grid = document.createElement('div');
