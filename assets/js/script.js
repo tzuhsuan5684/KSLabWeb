@@ -78,7 +78,6 @@ function updateFooterYear() {
 // --- 研究團隊頁面功能 (team.html) ---
 
 async function loadTeamData() {
-    const container = document.getElementById('team-members-container');
     try {
         const response = await fetch('data/team.json');
         if (!response.ok) {
@@ -86,6 +85,7 @@ async function loadTeamData() {
         }
         const data = await response.json();
 
+        // 渲染所有成員
         renderProfessor(data.professor);
         renderTeamMembers('postdocs-grid', data.postdocs);
         renderTeamMembers('assistants-grid', data.assistants);
@@ -97,13 +97,45 @@ async function loadTeamData() {
             renderTeamMembers('master-zero-year-grid', data.master_students.zero_year);
         }
 
+        renderAlumni('alumni-grid', data.alumni);
+
+        // 設定篩選器
+        setupTeamFilters();
+
     } catch (error) {
         console.error("無法載入團隊資料:", error);
-        if(container) {
-            container.innerHTML = `<p class="text-center text-red-500 col-span-full">無法載入團隊資料。請檢查檔案路徑是否正確，或嘗試在網頁伺服器上運行。</p>`;
+        const mainContent = document.querySelector('main');
+        if(mainContent) {
+            mainContent.innerHTML = `<p class="text-center text-red-500 col-span-full">無法載入團隊資料。請檢查檔案路徑是否正確，或嘗試在網頁伺服器上運行。</p>`;
         }
     }
 }
+
+function setupTeamFilters() {
+    const filterButtons = document.querySelectorAll('#team-filter-buttons .filter-btn');
+    const currentMembersContainer = document.getElementById('current-members-container');
+    const alumniContainer = document.getElementById('alumni-container');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 移除所有按鈕的 active 狀態
+            filterButtons.forEach(btn => btn.classList.remove('active-filter'));
+            // 為點擊的按鈕加上 active 狀態
+            button.classList.add('active-filter');
+
+            const filter = button.dataset.filter;
+
+            if (filter === 'current') {
+                currentMembersContainer.classList.remove('hidden');
+                alumniContainer.classList.add('hidden');
+            } else if (filter === 'alumni') {
+                currentMembersContainer.classList.add('hidden');
+                alumniContainer.classList.remove('hidden');
+            }
+        });
+    });
+}
+
 
 function renderProfessor(professor) {
     const section = document.getElementById('professor-section');
@@ -112,7 +144,6 @@ function renderProfessor(professor) {
     const titlesHTML = professor.titles.map(t => `<li><i class="${t.icon} fa-fw mr-2 text-blue-500"></i>${t.text}</li>`).join('');
     const honorsHTML = professor.honors.map(h => `<li><i class="${h.icon} fa-fw mr-2 text-yellow-500"></i>${h.text}</li>`).join('');
 
-    // 清空現有內容再添加，防止重複渲染
     section.innerHTML = `
         <h2 class="text-3xl font-bold text-center mb-8">指導教授</h2>
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
@@ -145,9 +176,7 @@ function renderTeamMembers(gridId, members) {
     const grid = document.getElementById(gridId);
     const section = grid ? grid.closest('section') : null;
     
-    if (!grid || !section) {
-        return;
-    }
+    if (!grid || !section) return;
 
     if (!members || members.length === 0) {
         section.style.display = 'none';
@@ -175,6 +204,33 @@ function renderTeamMembers(gridId, members) {
                 <div class="flex items-center text-slate-500 dark:text-slate-400">
                     <i class="fas fa-phone fa-fw mr-2 w-4 text-center"></i> 分機: ${member.ext}
                 </div>` : ''}
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderAlumni(gridId, alumni) {
+    const grid = document.getElementById(gridId);
+    const section = grid ? grid.closest('section') : null;
+
+    if (!grid || !section) return;
+
+    if (!alumni || alumni.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+
+    section.style.display = '';
+    grid.innerHTML = alumni.map(member => `
+        <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full">
+            <img src="${member.image}" alt="${member.name}" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover" onerror="this.src='assets/images/team/placeholder.png';">
+            <div class="flex-grow">
+                <h4 class="text-xl font-semibold">${member.name}</h4>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">${member.grad_year}年畢業</p>
+            </div>
+            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+                <p class="font-semibold text-blue-600 dark:text-blue-400">${member.company}</p>
+                <p class="text-slate-600 dark:text-slate-300">${member.title}</p>
             </div>
         </div>
     `).join('');

@@ -182,7 +182,29 @@
         "ext": "35353"
       }
     ],
-    "zero_year": [
-    ]
-  }
+    "zero_year": []
+  },
+  "alumni": [
+    {
+      "name": "陳大明",
+      "grad_year": 2022,
+      "image": "assets/images/team/placeholder.png",
+      "company": "Google",
+      "title": "軟體工程師"
+    },
+    {
+      "name": "林小美",
+      "grad_year": 2021,
+      "image": "assets/images/team/placeholder.png",
+      "company": "台灣積體電路製造",
+      "title": "資料科學家"
+    },
+    {
+      "name": "張三",
+      "grad_year": 2023,
+      "image": "assets/images/team/placeholder.png",
+      "company": "聯發科技",
+      "title": "AI 工程師"
+    }
+  ]
 }

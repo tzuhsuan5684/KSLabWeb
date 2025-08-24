@@ -75,6 +75,26 @@ body, .bg-white, .bg-slate-50, .bg-slate-100, .bg-slate-800, .bg-slate-900, .tex
     transform: scale(1.05);
 }
 
+/* 團隊頁面篩選按鈕樣式 */
+.filter-btn {
+    background-color: #f1f5f9; /* bg-slate-100 */
+    color: #334155; /* text-slate-700 */
+    transition: all 0.3s ease;
+}
+.dark .filter-btn {
+    background-color: #334155; /* dark:bg-slate-700 */
+    color: #e2e8f0; /* dark:text-slate-200 */
+}
+.filter-btn.active-filter {
+    background-color: #3b82f6; /* bg-blue-600 */
+    color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.dark .filter-btn.active-filter {
+    background-color: #60a5fa; /* dark:bg-blue-400 */
+    color: #1e293b; /* dark:text-slate-900 */
+}
+
 
 /* 回到頂部按鈕的顯示/隱藏效果 */
 #back-to-top {
