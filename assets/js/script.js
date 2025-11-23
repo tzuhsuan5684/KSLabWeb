@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 首頁（包括根路徑、空值、index.html）
     if (page === 'index.html' || page === '' || page.endsWith('/')) {
         if (document.getElementById('news-container')) {
-            loadNewsData();
+            loadNewsData(4);
         }
     }
     // 公告頁面
@@ -88,7 +88,7 @@ function updateFooterYear() {
 
 // --- 首頁功能 (index.html) ---
 
-async function loadNewsData() {
+async function loadNewsData(limit = null) {
     const container = document.getElementById('news-container');
     if (!container) {
         console.warn('news-container not found');
@@ -99,8 +99,13 @@ async function loadNewsData() {
         console.log('Loading news data...');
         const response = await fetch('data/news.json');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const newsData = await response.json();
+        let newsData = await response.json();
         console.log('News data loaded:', newsData);
+        
+        if (limit && typeof limit === 'number') {
+            newsData = newsData.slice(0, limit);
+        }
+        
         renderNews(newsData);
     } catch (error) {
         console.error("無法載入公告資料:", error);
