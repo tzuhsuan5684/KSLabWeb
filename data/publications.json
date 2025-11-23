@@ -1,42 +1,202 @@
 [
   {
-    "year": 2025,
+    "year": 2023,
     "category": "論文",
-    "title": "應用於永續教育的大型語言模型",
-    "authors": "楊鎮華, 李志強",
-    "source": "期刊名稱或會議名稱",
-    "link": "#"
-  },
-  {
-    "year": 2024,
-    "category": "產學合作",
-    "title": "金融業ESG報告智慧分析系統開發",
-    "authors": "KS Lab, ABC 證券",
-    "source": "合作單位",
-    "link": "#"
-  },
-  {
-    "year": 2024,
-    "category": "論文",
-    "title": "A Framework for Precision Education using Learning Analytics",
-    "authors": "Chen, H. M., Yang, J. C.",
+    "title": "Guest Editorial: Human-centered AI in Education: Augment Human Intelligence with Machine Intelligence",
+    "authors": "Yang, S. J. H.*, Ogata, H., & Matsui, T.",
     "source": "Computers & Education",
-    "link": "https://doi.org/..."
+    "link": ""
   },
   {
     "year": 2023,
-    "category": "獎項",
-    "title": "全國大專校院資訊應用服務創新競賽 金牌",
-    "authors": "林家豪, 黃詩涵",
-    "source": "主辦單位",
-    "link": "#"
+    "category": "論文",
+    "title": "Effects of artificial Intelligence–Enabled personalized recommendations on learners' learning engagement, motivation, and outcomes in a flipped classroom",
+    "authors": "Huang, A. Y. Q., Lu, O. H. T., & Yang, S. J. H.*",
+    "source": "Educational Technology & Society",
+    "link": "https://doi.org/10.1016/j.compedu.2022.104684"
   },
   {
     "year": 2023,
-    "category": "專案",
-    "title": "國科會計畫：以人為本之AI學習夥伴",
-    "authors": "楊鎮華",
-    "source": "國家科學及技術委員會",
-    "link": "#"
+    "category": "論文",
+    "title": "A Review of AI-Driven Conversational Chatbots Implementation Methodologies and Challenges (1999–2022)",
+    "authors": "Lin, C. C., Huang, A. Y. Q., & Yang, S. J. H.*",
+    "source": "Sustainability",
+    "link": "https://doi.org/10.3390/su15054012"
+  },
+  {
+    "year": 2023,
+    "category": "論文",
+    "title": "Personalized Intervention based on the Early Prediction of At-risk Students to Improve Their Learning Performance",
+    "authors": "Huang, A. Y. Q., Chang, J. W., Yang, A. C. M., Ogata, H., Li, S. T., Yen, R. X., & Yang, S. J. H.*",
+    "source": "Educational Technology & Society",
+    "link": "https://doi.org/10.30191/ETS.202310_26(4).0005"
+  },
+  {
+    "year": 2022,
+    "category": "論文",
+    "title": "Learning and Evidence Analytics Framework (LEAF): Research and Practice in International Collaboration",
+    "authors": "Ogata, H., Majumdar, R., Yang, S. J. H., & Warriem, J. M.",
+    "source": "Information and Technology in Education and Learning",
+    "link": ""
+  },
+  {
+    "year": 2021,
+    "category": "論文",
+    "title": "Human-centered artificial intelligence in education: seeing the invisible through the visible",
+    "authors": "Yang, S. J. H.*, Ogata, H., Matsui, T., & Chen, N. S.",
+    "source": "Computers and Education: Artificial Intelligence",
+    "link": ""
+  },
+  {
+    "year": 2021,
+    "category": "論文",
+    "title": "Guest Editorial: Precision education - a new challenge for AI in education",
+    "authors": "Yang, S. J. H.*",
+    "source": "Educational Technology & Society",
+    "link": ""
+  },
+  {
+    "year": 2021,
+    "category": "論文",
+    "title": "Impact of Teachers' Grading Policy on the Identification of At-Risk Students in Learning Analytics",
+    "authors": "Lu, O. H. T., Huang, A. Y. Q., & Yang, S. J. H.*",
+    "source": "Computers & Education",
+    "link": "https://doi.org/10.1016/j.compedu.2020.104109"
+  },
+  {
+    "year": 2021,
+    "category": "論文",
+    "title": "Expert-Authored and Machine-Generated Short-Answer Questions for Assessing Students' Learning Performance",
+    "authors": "Lu, O. H. T., Huang, A. Y. Q., Tsai, D. C. L., & Yang, S. J. H.*",
+    "source": "Educational Technology & Society",
+    "link": ""
+  },
+  {
+    "year": 2021,
+    "category": "論文",
+    "title": "Predicting at-risk university students based on their e-book reading behaviors by using machine learning classifiers",
+    "authors": "Chen, C. H., Yang, S. J. H., Weng, J. X., Ogata, H., & Su, C. Y.",
+    "source": "Australasian Journal of Educational Technology",
+    "link": ""
+  },
+  {
+    "year": 2020,
+    "category": "論文",
+    "title": "Predicting students' academic performance by using educational big data and learning analytics: Evaluation of classification methods and learning logs",
+    "authors": "Huang, A. Y. Q., Lu, O. H. T., Yin, C. J., & Yang, S. J. H.*",
+    "source": "Interactive Learning Environments",
+    "link": ""
+  },
+  {
+    "year": 2020,
+    "category": "論文",
+    "title": "Challenges and Future Directions of Big Data and Artificial Intelligence in Education",
+    "authors": "Luan, H., Geczy, P., Lai, H., Gobert, J., Yang, S. J. H., Ogata, H., & Tsai, C. C.",
+    "source": "Frontiers in Psychology",
+    "link": ""
+  },
+  {
+    "year": 2020,
+    "category": "論文",
+    "title": "A Deep-Learning Algorithm (ECG12Net) for Detecting Hypokalemia and Hyperkalemia by Electrocardiography: Algorithm Development",
+    "authors": "Lin, C. S., Lin, C., Fang, W. H., Hsu, C. J., Chen, S. J., Huang, K. H., Lin, W. S., Tsai, C. S., Kuo, C. C., Chau, T., Yang, S. J. H., & Lin, S. H.",
+    "source": "JMIR Medical Informatics",
+    "link": ""
+  },
+  {
+    "year": 2020,
+    "category": "論文",
+    "title": "A Novel Mechanism for Anomaly Removal of Firewall Filtering Rules",
+    "authors": "Chao, C. S., & Yang, S. J. H.",
+    "source": "Journal of Internet Technology",
+    "link": ""
+  },
+  {
+    "year": 2019,
+    "category": "論文",
+    "title": "Exploring the effects of online learning behaviors on short-term and long-term learning outcomes in flipped classrooms",
+    "authors": "Hsiao, C. C., Huang, J. C. H., Huang, A. Y. Q., Lu, O. H. T., Yin, C. J., & Yang, S. J. H.*",
+    "source": "Interactive Learning Environments",
+    "link": ""
+  },
+  {
+    "year": 2019,
+    "category": "論文",
+    "title": "Effect of gender differences on 3-on-3 basketball games taught in a mobile flipped classroom",
+    "authors": "Chiang, T. H. C., Yang, S. J. H.*, & Yin, C.",
+    "source": "Interactive Learning Environments",
+    "link": ""
+  },
+  {
+    "year": 2019,
+    "category": "論文",
+    "title": "Predicting students’ academic performance by using educational big data and learning analytics: Evaluation of classification methods and learning logs",
+    "authors": "Huang, A. Y. Q., Lu, O. H. T., Yin, C. J., & Yang, S. J. H.*",
+    "source": "Interactive Learning Environments",
+    "link": "https://doi.org/10.1080/10494820.2019.1636086"
+  },
+  {
+    "year": 2019,
+    "category": "論文",
+    "title": "Towards a usable anomaly diagnosis system among Internet firewalls’ rules",
+    "authors": "Chao, C. S., & Yang, S. J. H.",
+    "source": "Journal of Internet Technology",
+    "link": ""
+  },
+  {
+    "year": 2018,
+    "category": "論文",
+    "title": "Applying Learning Analytics for the Early Prediction of Students’ Academic Performance in Blended Learning",
+    "authors": "Lu, O. H. T., Huang, A. Y. Q., Huang, J. C. H., Lin, A. J. Q., Ogata, H., & Yang, S. J. H.*",
+    "source": "Educational Technology & Society",
+    "link": ""
+  },
+  {
+    "year": 2018,
+    "category": "論文",
+    "title": "Effect of gender differences on 3-on-3 basketball games taught in a mobile flipped classroom",
+    "authors": "Chiang, T. H. C., Yang, S. J. H.*, & Yin, C.",
+    "source": "Interactive Learning Environments",
+    "link": ""
+  },
+  {
+    "year": 2018,
+    "category": "論文",
+    "title": "Exploring the effects of online learning behaviors on short-term and long-term learning outcomes in flipped classrooms",
+    "authors": "Hsiao, C. C., Huang, J. C. H., Huang, A. Y. Q., Lu, O. H. T., Yin, C. J., & Yang, S. J. H.*",
+    "source": "Interactive Learning Environments",
+    "link": ""
+  },
+  {
+    "year": 2018,
+    "category": "論文",
+    "title": "Predicting students’ academic performance using multiple linear regression and principal component analysis",
+    "authors": "Yang, S. J. H.*, Lu, O. H. T., Huang, A. Y. Q., Huang, J. C. H., Ogata, H., & Lin, A. J. Q.",
+    "source": "Journal of Information Processing",
+    "link": ""
+  },
+  {
+    "year": 2017,
+    "category": "論文",
+    "title": "A Collaborative Digital Pen Learning Approach to Improving Students' Learning Achievement and Motivation in Mathematics Courses",
+    "authors": "Huang, C. S. J., Su, A. Y. S., Yang, S. J. H.*, & Liou, H. H.",
+    "source": "Computers & Education",
+    "link": ""
+  },
+  {
+    "year": 2017,
+    "category": "論文",
+    "title": "Applying learning analytics for improving students engagement and learning outcomes in an MOOCs enabled collaborative programming course",
+    "authors": "Lu, O. H. T., Huang, A. Y. Q., Huang, J. C. H., & Yang, S. J. H.*",
+    "source": "Interactive Learning Environments",
+    "link": ""
+  },
+  {
+    "year": 2017,
+    "category": "論文",
+    "title": "The influences of the 2nd image-based augmented reality and virtual reality on student learning",
+    "authors": "Liu, H. H., Yang, S. J. H.*, Chen, S. Y., & Tarng, W.",
+    "source": "Educational Technology & Society",
+    "link": ""
   }
 ]

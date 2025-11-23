@@ -9,7 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 根據目前頁面執行特定功能 ---
     const page = window.location.pathname.split("/").pop() || 'index.html';
+    console.log('Current page:', page);
 
+    // 首頁（包括根路徑、空值、index.html）
+    if (page === 'index.html' || page === '' || page.endsWith('/')) {
+        if (document.getElementById('news-container')) {
+            loadNewsData(4);
+        }
+    }
+    // 公告頁面
+    if (page === 'news.html') {
+        loadNewsData();
+    }
+    if (page === 'projects.html') {
+        loadProjectsData();
+    }
     if (page === 'team.html') {
         loadTeamData();
     }
@@ -75,6 +89,130 @@ function updateFooterYear() {
     }
 }
 
+// --- 首頁功能 (index.html) ---
+
+async function loadNewsData(limit = null) {
+    const container = document.getElementById('news-container');
+    if (!container) {
+        console.warn('news-container not found');
+        return;
+    }
+
+    try {
+        console.log('Loading news data...');
+        const response = await fetch('data/news.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        let newsData = await response.json();
+        console.log('News data loaded:', newsData);
+        
+        if (limit && typeof limit === 'number') {
+            newsData = newsData.slice(0, limit);
+        }
+        
+        renderNews(newsData);
+    } catch (error) {
+        console.error("無法載入公告資料:", error);
+        const container = document.getElementById('news-container');
+        if(container) container.innerHTML = `<p class="text-center text-red-500">無法載入公告資料：${error.message}</p>`;
+    }
+}
+
+function renderNews(newsData) {
+    const container = document.getElementById('news-container');
+    if (!container) return;
+
+    if (newsData.length === 0) {
+        container.innerHTML = '<p class="text-center text-slate-500">目前沒有最新公告。</p>';
+        return;
+    }
+
+    // 定義類別顏色
+    const categoryColors = {
+        '榮譽': 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300',
+        '招生': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+        '演講': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
+        '活動': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+        '其他': 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+    };
+
+    container.innerHTML = newsData.map(item => {
+        const colorClass = categoryColors[item.category] || categoryColors['其他'];
+        return `
+        <div class="news-item flex flex-col md:flex-row gap-4 items-start bg-slate-50 dark:bg-slate-800 p-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors border-l-4 border-transparent hover:border-blue-500">
+            <div class="date-category shrink-0 flex flex-row md:flex-col items-center md:items-start gap-2 md:w-32">
+                <span class="text-sm font-mono text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                    <i class="far fa-calendar-alt mr-1"></i>${item.date}
+                </span>
+                <span class="text-xs font-medium px-2.5 py-0.5 rounded ${colorClass}">
+                    ${item.category}
+                </span>
+            </div>
+            <div class="content grow">
+                <div class="block group">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1">
+                        ${item.title}
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
+                        ${item.summary}
+                    </p>
+                </div>
+            </div>
+        </div>
+        `;
+    }).join('');
+}
+
+// --- 實驗室計畫頁面功能 (projects.html) ---
+
+async function loadProjectsData() {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+
+    try {
+        const response = await fetch('data/projects.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const projectsData = await response.json();
+        renderProjects(projectsData);
+    } catch (error) {
+        console.error("無法載入計畫資料:", error);
+        container.innerHTML = `<p class="text-center text-red-500">無法載入計畫資料：${error.message}</p>`;
+    }
+}
+
+function renderProjects(projectsData) {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+
+    if (projectsData.length === 0) {
+        container.innerHTML = '<p class="text-center text-slate-500">目前沒有計畫資料。</p>';
+        return;
+    }
+
+    const categoryColors = {
+        '國科會計畫': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+        '教育部計畫': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+        '產學合作': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
+        '其他': 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+    };
+
+    container.innerHTML = projectsData.map(project => {
+        const colorClass = categoryColors[project.category] || categoryColors['其他'];
+        return `
+        <div class="project-item bg-slate-50 dark:bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-blue-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2 md:mb-0">${project.title}</h3>
+                <span class="${colorClass} text-sm font-medium px-2.5 py-0.5 rounded whitespace-nowrap">
+                    ${project.category}
+                </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-600 dark:text-slate-400">
+                <p><i class="fas fa-building mr-2 w-5 text-center"></i><strong>補助單位:</strong> ${project.agency}</p>
+                <p><i class="far fa-calendar-alt mr-2 w-5 text-center"></i><strong>執行期間:</strong> ${project.duration}</p>
+            </div>
+        </div>
+    `}).join('');
+}
+
 // --- 研究團隊頁面功能 (team.html) ---
 
 async function loadTeamData() {
@@ -97,7 +235,7 @@ async function loadTeamData() {
             renderTeamMembers('master-zero-year-grid', data.master_students.zero_year);
         }
 
-        renderAlumni('alumni-grid', data.alumni);
+        renderAlumni('alumni-groups-container', data.alumni);
 
         // 設定篩選器
         setupTeamFilters();
@@ -118,9 +256,7 @@ function setupTeamFilters() {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // 移除所有按鈕的 active 狀態
             filterButtons.forEach(btn => btn.classList.remove('active-filter'));
-            // 為點擊的按鈕加上 active 狀態
             button.classList.add('active-filter');
 
             const filter = button.dataset.filter;
@@ -143,12 +279,14 @@ function renderProfessor(professor) {
 
     const titlesHTML = professor.titles.map(t => `<li><i class="${t.icon} fa-fw mr-2 text-blue-500"></i>${t.text}</li>`).join('');
     const honorsHTML = professor.honors.map(h => `<li><i class="${h.icon} fa-fw mr-2 text-yellow-500"></i>${h.text}</li>`).join('');
+    
+    const positionClass = professor.img_position ? `object-position-${professor.img_position}` : '';
 
     section.innerHTML = `
         <h2 class="text-3xl font-bold text-center mb-8">指導教授</h2>
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-            <div class="flex-shrink-0">
-                <img src="${professor.image}" alt="${professor.name}" class="rounded-full w-36 h-36 md:w-48 md-h-48 object-cover border-4 border-blue-200 dark:border-blue-700">
+            <div class="flex-shrink-0 w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-blue-200 dark:border-blue-700 overflow-hidden">
+                <img src="${professor.image}" alt="${professor.name}" class="w-full h-full object-cover ${positionClass}">
             </div>
             <div class="text-left w-full">
                 <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400">${professor.name}</h3>
@@ -184,9 +322,13 @@ function renderTeamMembers(gridId, members) {
     }
     
     section.style.display = ''; 
-    grid.innerHTML = members.map(member => `
+    grid.innerHTML = members.map(member => {
+        const positionClass = member.img_position ? `object-position-${member.img_position}` : '';
+        return `
         <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full">
-            <img src="${member.image}" alt="${member.name}" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+            <div class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md overflow-hidden">
+                <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover ${positionClass}">
+            </div>
             <div class="flex-grow mb-4">
                 <h4 class="text-xl font-semibold">${member.name}</h4>
             </div>
@@ -206,34 +348,46 @@ function renderTeamMembers(gridId, members) {
                 </div>` : ''}
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
-function renderAlumni(gridId, alumni) {
-    const grid = document.getElementById(gridId);
-    const section = grid ? grid.closest('section') : null;
-
-    if (!grid || !section) return;
-
-    if (!alumni || alumni.length === 0) {
-        section.style.display = 'none';
+// ===== UPDATED FUNCTION: Renders all alumni in a single grid =====
+function renderAlumni(containerId, alumniData) {
+    const container = document.getElementById(containerId);
+    if (!container || !alumniData || alumniData.length === 0) {
+        const mainContainer = document.getElementById('alumni-container');
+        if(mainContainer) mainContainer.style.display = 'none';
         return;
     }
 
-    section.style.display = '';
-    grid.innerHTML = alumni.map(member => `
-        <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full">
-            <img src="${member.image}" alt="${member.name}" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover" onerror="this.src='assets/images/team/placeholder.png';">
-            <div class="flex-grow">
-                <h4 class="text-xl font-semibold">${member.name}</h4>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">${member.grad_year}年畢業</p>
+    // 2. Clear previous content
+    container.innerHTML = '';
+
+    // 3. Create a single grid for all alumni
+    const grid = document.createElement('div');
+    grid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8";
+
+    grid.innerHTML = alumniData.map(member => {
+        return `
+        <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+            <h4 class="text-xl font-bold mb-3 text-slate-800 dark:text-slate-100">${member.name}</h4>
+            
+            <div class="flex-grow flex flex-col justify-center mb-4">
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">現職</p>
+                <p class="font-semibold text-blue-600 dark:text-blue-400 text-lg">${member.company}</p>
             </div>
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <p class="font-semibold text-blue-600 dark:text-blue-400">${member.company}</p>
-                <p class="text-slate-600 dark:text-slate-300">${member.title}</p>
-            </div>
+
+            ${member.email ? `
+            <div class="mt-auto pt-3 border-t border-slate-200 dark:border-slate-700">
+                <a href="mailto:${member.email}" class="text-sm text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors inline-flex items-center break-all">
+                    <i class="fas fa-envelope mr-2"></i>${member.email}
+                </a>
+            </div>` : ''}
         </div>
-    `).join('');
+        `;
+    }).join('');
+
+    container.appendChild(grid);
 }
 
 
@@ -260,11 +414,9 @@ async function loadPublicationsData() {
 
 function populateFilters(data) {
     const yearFilter = document.getElementById('filter-year');
-    const categoryFilter = document.getElementById('filter-category');
-    if (!yearFilter || !categoryFilter) return;
+    if (!yearFilter) return;
 
     const years = [...new Set(data.map(item => item.year))].sort((a, b) => b - a);
-    const categories = [...new Set(data.map(item => item.category))];
 
     years.forEach(year => {
         const option = document.createElement('option');
@@ -272,21 +424,14 @@ function populateFilters(data) {
         option.textContent = year;
         yearFilter.appendChild(option);
     });
-
-    categories.forEach(category => {
-        const option = document.createElement('option');
-        option.value = category;
-        option.textContent = category;
-        categoryFilter.appendChild(option);
-    });
 }
 
 function renderPublications(data) {
-    const tbody = document.getElementById('publications-tbody');
+    const container = document.getElementById('publications-list');
     const noResults = document.getElementById('no-publications-found');
-    if (!tbody || !noResults) return;
+    if (!container || !noResults) return;
 
-    tbody.innerHTML = ''; 
+    container.innerHTML = ''; 
 
     if (data.length === 0) {
         noResults.classList.remove('hidden');
@@ -295,73 +440,85 @@ function renderPublications(data) {
     
     noResults.classList.add('hidden');
 
-    const categoryColors = {
-        '論文': 'purple',
-        '專案': 'blue',
-        '產學合作': 'green',
-        '獎項': 'yellow'
-    };
+    container.innerHTML = data.map(item => {
+        const hasLink = item.link && item.link.trim() !== '';
+        
+        const titleHtml = hasLink 
+            ? `<a href="${item.link}" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">${item.title}</a>`
+            : item.title;
 
-    data.forEach(item => {
-        const color = categoryColors[item.category] || 'gray';
-        const row = document.createElement('tr');
-        row.className = 'publication-item border-t border-slate-200 dark:border-slate-700';
-        row.innerHTML = `
-            <td class="p-4 font-medium">
-                <a href="${item.link}" target="_blank" class="text-blue-600 hover:underline dark:text-blue-400">${item.title}</a>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 italic">${item.source}</p>
-                <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 md:hidden"><strong>作者:</strong> ${item.authors}</p>
-            </td>
-            <td class="p-4 text-slate-600 dark:text-slate-400 hidden md:table-cell">${item.authors}</td>
-            <td class="p-4 text-center text-slate-600 dark:text-slate-400">${item.year}</td>
-            <td class="p-4 text-center">
-                <span class="bg-${color}-100 text-${color}-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-${color}-900 dark:text-${color}-300">${item.category}</span>
-            </td>
-        `;
-        tbody.appendChild(row);
-    });
+        const buttonHtml = hasLink
+            ? `<div class="flex-shrink-0 mt-2 md:mt-0">
+                 <a href="${item.link}" target="_blank" class="inline-flex items-center justify-center px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 dark:bg-slate-700 dark:text-blue-400 dark:hover:bg-slate-600 rounded-md transition-colors text-sm font-medium">
+                    <i class="fas fa-external-link-alt mr-2"></i>View
+                </a>
+               </div>`
+            : '';
+
+        return `
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow hover:shadow-md transition-shadow border-l-4 border-blue-500">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-4">
+                <div class="flex-grow">
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">
+                        ${titleHtml}
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-2 text-sm">
+                        <i class="fas fa-users mr-2 text-slate-400"></i>${item.authors}
+                    </p>
+                    <div class="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+                        <span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">
+                            <i class="far fa-calendar-alt mr-1"></i>${item.year}
+                        </span>
+                        <span class="italic">
+                            <i class="fas fa-book mr-1"></i>${item.source}
+                        </span>
+                    </div>
+                </div>
+                ${buttonHtml}
+            </div>
+        </div>
+    `}).join('');
 }
 
 function setupPublicationEventListeners() {
     const yearFilter = document.getElementById('filter-year');
-    const categoryFilter = document.getElementById('filter-category');
     const clearBtn = document.getElementById('clear-filters-btn');
     const exportBtn = document.getElementById('export-csv-btn');
 
     const applyFilters = () => {
         const selectedYear = yearFilter.value;
-        const selectedCategory = categoryFilter.value;
 
         const filteredData = allPublications.filter(item => {
             const yearMatch = (selectedYear === 'all' || item.year.toString() === selectedYear);
-            const categoryMatch = (selectedCategory === 'all' || item.category === selectedCategory);
-            return yearMatch && categoryMatch;
+            return yearMatch;
         });
         renderPublications(filteredData);
     };
 
-    yearFilter.addEventListener('change', applyFilters);
-    categoryFilter.addEventListener('change', applyFilters);
+    if (yearFilter) yearFilter.addEventListener('change', applyFilters);
 
-    clearBtn.addEventListener('click', () => {
-        yearFilter.value = 'all';
-        categoryFilter.value = 'all';
+    if (clearBtn) clearBtn.addEventListener('click', () => {
+        if (yearFilter) yearFilter.value = 'all';
         renderPublications(allPublications);
     });
 
-    exportBtn.addEventListener('click', exportToCsv);
+    if (exportBtn) exportBtn.addEventListener('click', exportToCsv);
 }
 
 function exportToCsv() {
-    const visibleItems = allPublications.filter(item => {
-         const row = document.querySelector(`a[href="${item.link}"]`);
-         return row && row.closest('tr').style.display !== 'none';
+    // 簡單起見，直接匯出當前篩選後的資料 (如果需要完全對應畫面可見性，需追蹤 filteredData)
+    // 這裡我們重新執行一次篩選邏輯來獲取當前資料，或者直接使用全域變數 (如果我們有存 filteredData)
+    // 為了簡單，我們重新讀取 filter 的值來過濾
+    
+    const yearFilter = document.getElementById('filter-year');
+    const selectedYear = yearFilter ? yearFilter.value : 'all';
+
+    const dataToExport = allPublications.filter(item => {
+        return (selectedYear === 'all' || item.year.toString() === selectedYear);
     });
     
     let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
     csvContent += "標題,作者,年份,類別,出處,連結\n";
-
-    const dataToExport = visibleItems.length > 0 ? visibleItems : allPublications;
 
     dataToExport.forEach(item => {
         const row = [item.title, item.authors, item.year, item.category, item.source, item.link]

@@ -22,6 +22,8 @@
             </a>
             <div class="hidden md:flex items-center space-x-6">
                 <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400">首頁</a>
+                <a href="news.html" class="hover:text-blue-600 dark:hover:text-blue-400">公告</a>
+                <a href="projects.html" class="hover:text-blue-600 dark:hover:text-blue-400">實驗室計畫</a>
                 <a href="research-areas.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究方向</a>
                 <a href="systems.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究系統</a>
                 <a href="team.html" class="text-blue-600 dark:text-blue-400 font-semibold">研究團隊</a>
@@ -37,6 +39,8 @@
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
             <a href="index.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">首頁</a>
+            <a href="news.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">公告</a>
+            <a href="projects.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">實驗室計畫</a>
             <a href="research-areas.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究方向</a>
             <a href="systems.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究系統</a>
             <a href="team.html" class="block py-2 px-6 text-blue-600 dark:text-blue-400">研究團隊</a>
@@ -63,7 +67,7 @@
                     <i class="fas fa-users mr-2"></i>實驗室成員
                 </button>
                 <button data-filter="alumni" class="filter-btn px-6 py-3 text-lg font-semibold rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 z-10">
-                    <i class="fas fa-graduation-cap mr-2"></i>已畢業成員
+                    <i class="fas fa-graduation-cap mr-2"></i>畢業成員
                 </button>
             </div>
         </div>
@@ -103,12 +107,10 @@
 
         <!-- Alumni Container -->
         <div id="alumni-container" class="hidden">
-            <section id="alumni-section">
-                 <h2 class="text-2xl font-bold border-l-4 border-teal-500 pl-4 mb-6">畢業系友出路</h2>
-                <div id="alumni-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <!-- 畢業系友資訊將由 JS 動態載入 -->
-                </div>
-            </section>
+            <!-- ===== THIS IS THE FIX: Added the container for JS to target ===== -->
+            <div id="alumni-groups-container" class="space-y-12">
+                <!-- 畢業系友的年度區塊將由 JS 動態載入於此 -->
+            </div>
         </div>
     </main>
 
