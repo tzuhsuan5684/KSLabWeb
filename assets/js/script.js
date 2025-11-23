@@ -9,7 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 根據目前頁面執行特定功能 ---
     const page = window.location.pathname.split("/").pop() || 'index.html';
+    console.log('Current page:', page);
 
+    // 首頁（包括根路徑、空值、index.html）
+    if (page === 'index.html' || page === '' || page.endsWith('/')) {
+        if (document.getElementById('news-container')) {
+            loadNewsData();
+        }
+    }
+    // 公告頁面
+    if (page === 'news.html') {
+        loadNewsData();
+    }
     if (page === 'team.html') {
         loadTeamData();
     }
@@ -75,6 +86,79 @@ function updateFooterYear() {
     }
 }
 
+// --- 首頁功能 (index.html) ---
+
+async function loadNewsData() {
+    const container = document.getElementById('news-container');
+    if (!container) {
+        console.warn('news-container not found');
+        return;
+    }
+
+    try {
+        console.log('Loading news data...');
+        const response = await fetch('data/news.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const newsData = await response.json();
+        console.log('News data loaded:', newsData);
+        renderNews(newsData);
+    } catch (error) {
+        console.error("無法載入公告資料:", error);
+        const container = document.getElementById('news-container');
+        if(container) container.innerHTML = `<p class="text-center text-red-500">無法載入公告資料：${error.message}</p>`;
+    }
+}
+
+function renderNews(newsData) {
+    const container = document.getElementById('news-container');
+    if (!container) return;
+
+    if (newsData.length === 0) {
+        container.innerHTML = '<p class="text-center text-slate-500">目前沒有最新公告。</p>';
+        return;
+    }
+
+    // 定義類別顏色
+    const categoryColors = {
+        '榮譽': 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300',
+        '招生': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+        '演講': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
+        '活動': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+        '其他': 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+    };
+
+    container.innerHTML = newsData.map(item => {
+        const colorClass = categoryColors[item.category] || categoryColors['其他'];
+        return `
+        <div class="news-item flex flex-col md:flex-row gap-4 items-start bg-slate-50 dark:bg-slate-800 p-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors border-l-4 border-transparent hover:border-blue-500">
+            <div class="date-category shrink-0 flex flex-row md:flex-col items-center md:items-start gap-2 md:w-32">
+                <span class="text-sm font-mono text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                    <i class="far fa-calendar-alt mr-1"></i>${item.date}
+                </span>
+                <span class="text-xs font-medium px-2.5 py-0.5 rounded ${colorClass}">
+                    ${item.category}
+                </span>
+            </div>
+            <div class="content grow">
+                <a href="${item.link}" class="block group">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">
+                        ${item.title}
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
+                        ${item.summary}
+                    </p>
+                </a>
+            </div>
+            <div class="action shrink-0 hidden md:flex items-center h-full">
+                <a href="${item.link}" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+        `;
+    }).join('');
+}
+
 // --- 研究團隊頁面功能 (team.html) ---
 
 async function loadTeamData() {
@@ -97,7 +181,7 @@ async function loadTeamData() {
             renderTeamMembers('master-zero-year-grid', data.master_students.zero_year);
         }
 
-        renderAlumniByYear('alumni-groups-container', data.alumni);
+        renderAlumni('alumni-groups-container', data.alumni);
 
         // 設定篩選器
         setupTeamFilters();
@@ -213,62 +297,43 @@ function renderTeamMembers(gridId, members) {
     `}).join('');
 }
 
-// ===== UPDATED FUNCTION: Renders alumni grouped by year from the new data structure =====
-function renderAlumniByYear(containerId, alumniData) {
+// ===== UPDATED FUNCTION: Renders all alumni in a single grid =====
+function renderAlumni(containerId, alumniData) {
     const container = document.getElementById(containerId);
-    if (!container || !alumniData || Object.keys(alumniData).length === 0) {
+    if (!container || !alumniData || alumniData.length === 0) {
         const mainContainer = document.getElementById('alumni-container');
         if(mainContainer) mainContainer.style.display = 'none';
         return;
     }
 
-    // 1. Get years from object keys and sort them descending
-    const sortedYears = Object.keys(alumniData).sort((a, b) => b - a);
-
-    // 2. Clear previous content and build new HTML
+    // 2. Clear previous content
     container.innerHTML = '';
 
-    sortedYears.forEach(year => {
-        const members = alumniData[year];
-        if (members.length === 0) return; // Skip empty year groups
+    // 3. Create a single grid for all alumni
+    const grid = document.createElement('div');
+    grid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8";
 
-        // Create a new <section> for each year
-        const yearSection = document.createElement('section');
-
-        // Create title for the year
-        const title = document.createElement('h2');
-        title.className = "text-2xl font-bold border-l-4 border-teal-500 pl-4 mb-6";
-        title.textContent = `${year}級`;
-        
-        // Create grid for the members of this year
-        const grid = document.createElement('div');
-        grid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8";
-        
-        grid.innerHTML = members.map(member => {
-            const positionClass = member.img_position ? `object-position-${member.img_position}` : '';
-            return `
-            <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full">
-                <div class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md overflow-hidden">
-                    <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover ${positionClass}" onerror="this.src='assets/images/team/placeholder.png';">
-                </div>
-                <div class="flex-grow">
-                    <h4 class="text-xl font-semibold">${member.name}</h4>
-                </div>
-                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                    <p class="font-semibold text-blue-600 dark:text-blue-400">${member.company}</p>
-                    <p class="text-slate-600 dark:text-slate-300">${member.title}</p>
-                </div>
+    grid.innerHTML = alumniData.map(member => {
+        return `
+        <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
+            <h4 class="text-xl font-bold mb-3 text-slate-800 dark:text-slate-100">${member.name}</h4>
+            
+            <div class="flex-grow flex flex-col justify-center mb-4">
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">現職</p>
+                <p class="font-semibold text-blue-600 dark:text-blue-400 text-lg">${member.company}</p>
             </div>
-            `;
-        }).join('');
 
-        // Append title and grid to the new section for this year
-        yearSection.appendChild(title);
-        yearSection.appendChild(grid);
+            ${member.email ? `
+            <div class="mt-auto pt-3 border-t border-slate-200 dark:border-slate-700">
+                <a href="mailto:${member.email}" class="text-sm text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors inline-flex items-center break-all">
+                    <i class="fas fa-envelope mr-2"></i>${member.email}
+                </a>
+            </div>` : ''}
+        </div>
+        `;
+    }).join('');
 
-        // Append the new section for this year to the main container
-        container.appendChild(yearSection);
-    });
+    container.appendChild(grid);
 }
 
 

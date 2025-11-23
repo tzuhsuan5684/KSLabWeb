@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
 
@@ -30,6 +30,7 @@
             </a>
             <div class="hidden md:flex items-center space-x-6">
                 <a href="index.html" class="text-blue-600 dark:text-blue-400 font-semibold">首頁</a>
+                <a href="news.html" class="hover:text-blue-600 dark:hover:text-blue-400">最新公告</a>
                 <a href="research-areas.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究方向</a>
                 <a href="systems.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究系統</a>
                 <a href="team.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究團隊</a>
@@ -49,6 +50,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
             <a href="index.html" class="block py-2 px-6 text-blue-600 dark:text-blue-400">首頁</a>
+            <a href="news.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">最新公告</a>
             <a href="research-areas.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究方向</a>
             <a href="systems.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究系統</a>
             <a href="team.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究團隊</a>
@@ -72,41 +74,63 @@
             </div>
         </section>
 
-        <!-- Highlight Cards Section -->
+    <!-- 最新公告 Section (已上移至此) -->
+    <section id="news-section" class="py-16 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">最新公告</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- News Container (由 JS 動態載入) -->
+            <div id="news-container" class="max-w-5xl mx-auto space-y-4">
+                <!-- Loading placeholder -->
+                <div class="text-center text-slate-500">載入中...</div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="news.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                    查看更多公告 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Lab Introduction Section (背景改為灰色以區隔) -->
         <section class="py-16 md:py-24 bg-slate-50 dark:bg-slate-800">
             <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Card 1: AI -->
-                    <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-blue-500 mb-4"><i class="fas fa-robot"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">人工智慧</h3>
-                        <p class="text-slate-600 dark:text-slate-400">發展核心演算法，建構更聰明、更可靠的智慧系統。</p>
-                    </div>
-                    <!-- Card 2: Machine Learning -->
-                    <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-green-500 mb-4"><i class="fas fa-cogs"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">機器學習</h3>
-                        <p class="text-slate-600 dark:text-slate-400">從數據中學習模式，實現精準預測與決策自動化。</p>
-                    </div>
-                    <!-- Card 3: NLP -->
-                    <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-purple-500 mb-4"><i class="fas fa-language"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">自然語言處理</h3>
-                        <p class="text-slate-600 dark:text-slate-400">讓機器理解與生成人類語言，縮短人機溝通的距離。</p>
-                    </div>
-                    <!-- Card 4: Education -->
-                    <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-graduation-cap"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">智慧教育</h3>
-                        <p class="text-slate-600 dark:text-slate-400">結合學習分析與AI，打造個人化、永續的學習環境。</p>
+                <!-- 研究方向框框 -->
+                <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">我們的研究方向</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Card 1: AI -->
+                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                            <div class="text-4xl text-blue-500 mb-4"><i class="fas fa-robot"></i></div>
+                            <h3 class="text-2xl font-bold mb-2">人工智慧</h3>
+                            <p class="text-slate-600 dark:text-slate-400">發展核心演算法，建構更聰明、更可靠的智慧系統。</p>
+                        </div>
+                        <!-- Card 2: Machine Learning -->
+                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                            <div class="text-4xl text-green-500 mb-4"><i class="fas fa-cogs"></i></div>
+                            <h3 class="text-2xl font-bold mb-2">機器學習</h3>
+                            <p class="text-slate-600 dark:text-slate-400">從數據中學習模式，實現精準預測與決策自動化。</p>
+                        </div>
+                        <!-- Card 3: NLP -->
+                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                            <div class="text-4xl text-purple-500 mb-4"><i class="fas fa-language"></i></div>
+                            <h3 class="text-2xl font-bold mb-2">自然語言處理</h3>
+                            <p class="text-slate-600 dark:text-slate-400">讓機器理解與生成人類語言，縮短人機溝通的距離。</p>
+                        </div>
+                        <!-- Card 4: Education -->
+                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                            <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-graduation-cap"></i></div>
+                            <h3 class="text-2xl font-bold mb-2">智慧教育</h3>
+                            <p class="text-slate-600 dark:text-slate-400">結合學習分析與AI，打造個人化、永續的學習環境。</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Lab Introduction Section -->
-        <section class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
+                <!-- 關於我們內容 -->
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-1/2">
                         <h2 class="text-3xl md:text-4xl font-bold mb-6">關於我們</h2>
@@ -124,11 +148,11 @@
             </div>
         </section>
 
-        <!-- Supervisor Section -->
-        <section class="py-16 md:py-24 bg-slate-50 dark:bg-slate-800">
+        <!-- Supervisor Section (背景改為白色以區隔) -->
+        <section class="py-16 md:py-24 bg-white dark:bg-slate-900">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">指導教授</h2>
-                <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
                     <div class="flex-shrink-0">
                         <img src="https://www.csie.ncu.edu.tw/media/pages/teacher/1/157294218-1662542177/jhyang.jpg" alt="楊鎮華教授" class="rounded-full w-36 h-36 md:w-48 md:h-48 object-cover border-4 border-blue-200 dark:border-blue-700">
                     </div>
@@ -163,6 +187,59 @@
                 </div>
             </div>
         </section>
+
+    <!-- 活動剪影 Section -->
+    <section id="gallery-section" class="py-16 bg-slate-50 dark:bg-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">實驗室生活</h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-400">研究之餘的精彩時刻與團隊活動</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Photo 1 (Large) -->
+                <div class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+                    <!-- 請替換 src 為實際圖片路徑 -->
+                    <img src="https://placehold.co/800x600/2563eb/white?text=Lab+Meeting" alt="Lab Meeting" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-white font-semibold text-lg">每週學術討論</span>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <img src="https://placehold.co/400x300/16a34a/white?text=BBQ" alt="Activity" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold">中秋烤肉</span>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <img src="https://placehold.co/400x300/9333ea/white?text=Graduation" alt="Graduation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold">畢業典禮</span>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <img src="https://placehold.co/400x300/ea580c/white?text=Conference" alt="Conference" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold">研討會發表</span>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <img src="https://placehold.co/400x300/0891b2/white?text=Year+End" alt="Party" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold">尾牙聚餐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
         <!-- Quick Access Section -->
         <section class="py-16 md:py-24">
@@ -229,6 +306,6 @@
     </button>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
