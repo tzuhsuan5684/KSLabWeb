@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (page === 'news.html') {
         loadNewsData();
     }
+    if (page === 'projects.html') {
+        loadProjectsData();
+    }
     if (page === 'team.html') {
         loadTeamData();
     }
@@ -162,6 +165,57 @@ function renderNews(newsData) {
         </div>
         `;
     }).join('');
+}
+
+// --- 實驗室計畫頁面功能 (projects.html) ---
+
+async function loadProjectsData() {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+
+    try {
+        const response = await fetch('data/projects.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const projectsData = await response.json();
+        renderProjects(projectsData);
+    } catch (error) {
+        console.error("無法載入計畫資料:", error);
+        container.innerHTML = `<p class="text-center text-red-500">無法載入計畫資料：${error.message}</p>`;
+    }
+}
+
+function renderProjects(projectsData) {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+
+    if (projectsData.length === 0) {
+        container.innerHTML = '<p class="text-center text-slate-500">目前沒有計畫資料。</p>';
+        return;
+    }
+
+    const categoryColors = {
+        '國科會計畫': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+        '教育部計畫': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+        '產學合作': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
+        '其他': 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+    };
+
+    container.innerHTML = projectsData.map(project => {
+        const colorClass = categoryColors[project.category] || categoryColors['其他'];
+        return `
+        <div class="project-item bg-slate-50 dark:bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-blue-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2 md:mb-0">${project.title}</h3>
+                <span class="${colorClass} text-sm font-medium px-2.5 py-0.5 rounded whitespace-nowrap">
+                    ${project.category}
+                </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-600 dark:text-slate-400">
+                <p><i class="fas fa-building mr-2 w-5 text-center"></i><strong>補助單位:</strong> ${project.agency}</p>
+                <p><i class="far fa-calendar-alt mr-2 w-5 text-center"></i><strong>執行期間:</strong> ${project.duration}</p>
+            </div>
+        </div>
+    `}).join('');
 }
 
 // --- 研究團隊頁面功能 (team.html) ---
