@@ -148,19 +148,14 @@ function renderNews(newsData) {
                 </span>
             </div>
             <div class="content grow">
-                <a href="${item.link}" class="block group">
-                    <h3 class="text-lg font-bold text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">
+                <div class="block group">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1">
                         ${item.title}
                     </h3>
                     <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
                         ${item.summary}
                     </p>
-                </a>
-            </div>
-            <div class="action shrink-0 hidden md:flex items-center h-full">
-                <a href="${item.link}" class="text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <i class="fas fa-chevron-right"></i>
-                </a>
+                </div>
             </div>
         </div>
         `;

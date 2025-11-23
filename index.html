@@ -64,131 +64,176 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
-            <div class="absolute inset-0 bg-blue-700 z-0">
-                <div class="absolute inset-0 bg-black opacity-40"></div>
+        <section class="relative h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden pb-32">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-600 z-0">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
                 <!-- Background pattern -->
                 <div class="absolute inset-0 opacity-10" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
             </div>
-            <div class="container mx-auto px-6 z-10">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-down">人工智慧與知識系統實驗室</h1>
-                <p class="text-lg md:text-2xl max-w-3xl mx-auto text-slate-200 animate-fade-in-up">致力於探索人工智慧的前沿，透過機器學習與自然語言處理技術，開創智慧教育與永續發展的無限可能。</p>
+            <div class="container mx-auto px-6 z-10 relative">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-down tracking-tight">人工智慧與知識系統實驗室</h1>
+                <p class="text-lg md:text-2xl max-w-3xl mx-auto text-blue-100 animate-fade-in-up mb-8 leading-relaxed">致力於探索人工智慧的前沿，透過機器學習與自然語言處理技術，<br class="hidden md:block">開創智慧教育與永續發展的無限可能。</p>
+                
+                <div class="animate-bounce mt-12">
+                    <a href="#news-section" class="text-white/80 hover:text-white transition-colors">
+                        <i class="fas fa-chevron-down text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Decorative Wave (Bottom) -->
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+                <svg class="relative block w-[calc(100%+1.3px)] h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-slate-50 dark:fill-slate-900 opacity-10"></path>
+                </svg>
             </div>
         </section>
 
-    <!-- 最新公告 Section (已上移至此) -->
-    <section id="news-section" class="py-16 bg-white dark:bg-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">最新公告</h2>
-                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
-            </div>
+    <!-- 最新公告 Section (Floating Card Style) -->
+    <section id="news-section" class="relative z-20 -mt-32 pb-16 px-4">
+        <div class="container mx-auto">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-6xl mx-auto border-t-4 border-blue-500">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-slate-100 dark:border-slate-700 pb-4">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800 dark:text-white flex items-center">
+                            <i class="fas fa-bullhorn text-blue-500 mr-3"></i>最新公告
+                        </h2>
+                        <p class="text-slate-500 dark:text-slate-400 mt-2">實驗室的最新動態與榮譽榜</p>
+                    </div>
+                    <a href="news.html" class="hidden md:inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors mt-4 md:mt-0">
+                        查看更多 <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
 
-            <!-- News Container (由 JS 動態載入) -->
-            <div id="news-container" class="max-w-5xl mx-auto space-y-4">
-                <!-- Loading placeholder -->
-                <div class="text-center text-slate-500">載入中...</div>
-            </div>
-            
-            <div class="text-center mt-10">
-                <a href="news.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors">
-                    查看更多公告 <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                <!-- News Container (由 JS 動態載入) -->
+                <div id="news-container" class="space-y-4">
+                    <!-- Loading placeholder -->
+                    <div class="text-center text-slate-500 py-8">載入中...</div>
+                </div>
+                
+                <div class="text-center mt-8 md:hidden">
+                    <a href="news.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                        查看更多公告 <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-        <!-- Lab Introduction Section (背景改為灰色以區隔) -->
-        <section class="py-16 md:py-24 bg-slate-50 dark:bg-slate-800">
-            <div class="container mx-auto px-6">
-                <!-- 研究方向框框 -->
-                <div class="mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">我們的研究方向</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <!-- Card 1: AI -->
-                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="text-4xl text-blue-500 mb-4"><i class="fas fa-robot"></i></div>
-                            <h3 class="text-2xl font-bold mb-2">人工智慧</h3>
-                            <p class="text-slate-600 dark:text-slate-400">發展核心演算法，建構更聰明、更可靠的智慧系統。</p>
-                        </div>
-                        <!-- Card 2: Machine Learning -->
-                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="text-4xl text-green-500 mb-4"><i class="fas fa-cogs"></i></div>
-                            <h3 class="text-2xl font-bold mb-2">機器學習</h3>
-                            <p class="text-slate-600 dark:text-slate-400">從數據中學習模式，實現精準預測與決策自動化。</p>
-                        </div>
-                        <!-- Card 3: NLP -->
-                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="text-4xl text-purple-500 mb-4"><i class="fas fa-language"></i></div>
-                            <h3 class="text-2xl font-bold mb-2">自然語言處理</h3>
-                            <p class="text-slate-600 dark:text-slate-400">讓機器理解與生成人類語言，縮短人機溝通的距離。</p>
-                        </div>
-                        <!-- Card 4: Education -->
-                        <div class="feature-card bg-white dark:bg-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-                            <div class="text-4xl text-orange-500 mb-4"><i class="fas fa-graduation-cap"></i></div>
-                            <h3 class="text-2xl font-bold mb-2">智慧教育</h3>
-                            <p class="text-slate-600 dark:text-slate-400">結合學習分析與AI，打造個人化、永續的學習環境。</p>
-                        </div>
-                    </div>
+    <!-- 整合區塊：關於我們 + 指導教授 + 研究方向 -->
+    <section class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
+        <div class="container mx-auto px-6">
+            
+            <!-- 1. 關於我們 (About Us) -->
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-24">
+                <div class="md:w-1/2">
+                    <div class="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4 dark:bg-blue-900 dark:text-blue-300">About Us</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-800 dark:text-white">關於實驗室</h2>
+                    <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mb-6">
+                        本實驗室主要研究開發人性化及永續的學習科技，利用資料科學和人工智慧，將理論和實際應用結合，希望能在電腦科學這個領域裡面做出一些前沿的研究。
+                    </p>
+                    <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                        我們致力於探索人工智慧、機器學習以及自然語言處理等方向。透過學習分析實現精準教育，並利用先進的自然語言模型，讓機器能讀懂人類語言，協助使用者完成複雜任務。
+                    </p>
                 </div>
-
-                <!-- 關於我們內容 -->
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">關於我們</h2>
-                        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                            本實驗室主要研究開發人性化及永續的學習科技，利用資料科學和人工智慧，將理論和實際應用結合，希望能在電腦科學這個領域裡面做出一些前沿的研究。
-                        </p>
-                        <p class="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                            本實驗室目前在探索人工智慧、機器學習以及自然語言處理等方向。在人工智慧方面，結合了學習分析，希望能透過人工智慧的幫助，對學生進行精準教育。而機器學習是人工智慧的一個主要研究的範疇，藉由監督、非監督式學習，訓練模型，並利用這些模型來解決現實世界的問題。其中自然語言模型是本實驗室的研究重點，讓人工智慧能讀懂人類使用的語言，協助使用者完成任務。
-                        </p>
-                    </div>
-                    <div class="md:w-1/2">
-                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=KS+Lab" alt="實驗室照片" class="rounded-lg shadow-xl w-full h-auto">
-                    </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute -inset-4 bg-blue-200 dark:bg-blue-900/30 rounded-xl transform rotate-3 opacity-50"></div>
+                    <img src="https://placehold.co/600x400/3b82f6/ffffff?text=KS+Lab" alt="實驗室照片" class="relative rounded-lg shadow-xl w-full h-auto transform transition-transform hover:scale-[1.02] duration-300">
                 </div>
             </div>
-        </section>
 
-        <!-- Supervisor Section (背景改為白色以區隔) -->
-        <section class="py-16 md:py-24 bg-white dark:bg-slate-900">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">指導教授</h2>
-                <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-shrink-0">
-                        <img src="https://www.csie.ncu.edu.tw/media/pages/teacher/1/157294218-1662542177/jhyang.jpg" alt="楊鎮華教授" class="rounded-full w-36 h-36 md:w-48 md:h-48 object-cover border-4 border-blue-200 dark:border-blue-700">
+            <!-- 2. 指導教授 (Supervisor) - 已移至此處 -->
+            <div class="mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">指導教授</h2>
+                </div>
+                <!-- 注意：這裡背景改為 bg-white 以在灰色區塊中突顯 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 border border-slate-100 dark:border-slate-700">
+                    <div class="flex-shrink-0 relative">
+                        <div class="absolute inset-0 bg-blue-500 rounded-full blur-lg opacity-20"></div>
+                        <img src="assets/images/team/jhyang.jpg" alt="楊鎮華教授" class="relative rounded-full w-40 h-40 md:w-56 md:h-56 object-cover border-4 border-white dark:border-slate-700 shadow-md">
                     </div>
-                    <div class="text-center md:text-left">
-                        <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400">楊鎮華 教授</h3>
-                        <p class="text-slate-500 dark:text-slate-400 mt-1">國立中央大學 資訊工程學系 講座教授 (2018~)</p>
-                        <p class="text-slate-500 dark:text-slate-400">美國伊利諾大學 芝加哥校區 電機電腦 博士</p>
+                    <div class="text-center md:text-left flex-1">
+                        <h3 class="text-3xl font-bold text-slate-800 dark:text-white mb-2">楊鎮華 教授</h3>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium mb-4">國立中央大學 資訊工程學系 講座教授</p>
                         
-                        <div class="mt-4">
-                            <h4 class="font-semibold mb-2">專長</h4>
-                            <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">人工智慧</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">機器學習</span>
-                                <span class="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">大數據</span>
-                                <span class="bg-orange-100 text-orange-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-orange-900 dark:text-orange-300">學習分析</span>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm">人工智慧</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm">機器學習</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm">大數據</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-sm">學習分析</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left bg-slate-50 dark:bg-slate-900/50 p-6 rounded-xl">
+                            <div>
+                                <h4 class="font-bold text-slate-800 dark:text-white mb-2 text-sm uppercase tracking-wider">學歷</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">美國伊利諾大學 芝加哥校區<br>電機電腦 博士</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 dark:text-white mb-2 text-sm uppercase tracking-wider">近期研究</h4>
+                                <ul class="text-slate-600 dark:text-slate-400 text-sm space-y-1">
+                                    <li>• 永續與精準教育</li>
+                                    <li>• 以人為本的人工智慧</li>
+                                    <li>• 產業 ESG 分析</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <div class="mt-4">
-                            <h4 class="font-semibold mb-2">近期研究計畫</h4>
-                            <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 text-left">
-                                <li>產業ESG分析</li>
-                                <li>永續教育 (Sustainable education)</li>
-                                <li>精準教育 (Precision education)</li>
-                                <li>以人為本的人工智慧 (Human-center AI)</li>
-                                <li>與日本京都大學的BookRoll Partnership</li>
-                            </ul>
+                        <div class="mt-6 flex justify-center md:justify-start">
+                            <a href="mailto:jhyang@csie.ncu.edu.tw" class="inline-flex items-center text-slate-500 hover:text-blue-600 transition-colors">
+                                <i class="fas fa-envelope mr-2"></i> jhyang@csie.ncu.edu.tw
+                            </a>
                         </div>
-
-                        <p class="mt-4 text-slate-600 dark:text-slate-300"><i class="fas fa-envelope mr-2"></i><a href="mailto:jhyang@csie.ncu.edu.tw" class="hover:text-blue-500">jhyang@csie.ncu.edu.tw</a></p>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- 3. 核心研究領域 (Research Areas) -->
+            <div class="relative">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">核心研究領域</h2>
+                    <p class="mt-4 text-slate-600 dark:text-slate-400">我們專注於以下四大前瞻技術領域</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1: AI -->
+                    <div class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-blue-500">
+                        <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 mb-6">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">人工智慧</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">發展核心演算法，建構更聰明、更可靠的智慧系統。</p>
+                    </div>
+                    <!-- Card 2: Machine Learning -->
+                    <div class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-green-500">
+                        <div class="w-14 h-14 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-2xl text-green-600 dark:text-green-400 mb-6">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">機器學習</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">從數據中學習模式，實現精準預測與決策自動化。</p>
+                    </div>
+                    <!-- Card 3: NLP -->
+                    <div class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-purple-500">
+                        <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center text-2xl text-purple-600 dark:text-purple-400 mb-6">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">自然語言處理</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">讓機器理解與生成人類語言，縮短人機溝通的距離。</p>
+                    </div>
+                    <!-- Card 4: Education -->
+                    <div class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-orange-500">
+                        <div class="w-14 h-14 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-2xl text-orange-600 dark:text-orange-400 mb-6">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">智慧教育</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">結合學習分析與AI，打造個人化、永續的學習環境。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- 活動剪影 Section -->
     <section id="gallery-section" class="py-16 bg-slate-50 dark:bg-slate-800">
