@@ -56,12 +56,9 @@
         </header>
 
         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg mb-8 flex flex-col md:flex-row gap-4 items-center shadow">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:w-auto flex-grow">
-                <select id="filter-year" class="w-full bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="w-full md:w-auto flex-grow">
+                <select id="filter-year" class="w-full md:w-64 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="all">所有年份</option>
-                </select>
-                <select id="filter-category" class="w-full bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="all">所有類別</option>
                 </select>
             </div>
             <div class="flex items-center gap-4 mt-4 md:mt-0">
@@ -74,24 +71,13 @@
             </div>
         </div>
 
-        <div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-lg shadow">
-            <table class="w-full text-left align-top">
-                <thead class="bg-slate-100 dark:bg-slate-700">
-                    <tr>
-                        <th class="p-4 font-semibold">標題與出處</th>
-                        <th class="p-4 font-semibold hidden md:table-cell">作者</th>
-                        <th class="p-4 font-semibold text-center">年份</th>
-                        <th class="p-4 font-semibold text-center">類別</th>
-                    </tr>
-                </thead>
-                <tbody id="publications-tbody">
-                    <!-- 研究成果列表將由 JS 動態載入 -->
-                </tbody>
-            </table>
-            <div id="no-publications-found" class="hidden text-center p-8 text-slate-500">
-                <i class="fas fa-search text-4xl mb-3"></i>
-                <p>找不到符合篩選條件的成果。</p>
-            </div>
+        <div id="publications-list" class="space-y-8">
+            <!-- 研究成果列表將由 JS 動態載入 -->
+        </div>
+        
+        <div id="no-publications-found" class="hidden text-center p-8 text-slate-500">
+            <i class="fas fa-search text-4xl mb-3"></i>
+            <p>找不到符合篩選條件的成果。</p>
         </div>
     </main>
 
