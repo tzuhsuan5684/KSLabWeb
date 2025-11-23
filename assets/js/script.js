@@ -2,7 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- 全站共用功能 ---
-    handleDarkMode();
     handleMobileMenu();
     handleBackToTopButton();
     updateFooterYear();
@@ -36,27 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- 全站共用函式 ---
-
-function handleDarkMode() {
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    if (!darkModeToggle) return;
-    const sunIcon = darkModeToggle.querySelector('.fa-sun');
-    const moonIcon = darkModeToggle.querySelector('.fa-moon');
-
-    const isDark = localStorage.getItem('color-theme') === 'dark' ||
-                   (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-    document.documentElement.classList.toggle('dark', isDark);
-    sunIcon.classList.toggle('hidden', isDark);
-    moonIcon.classList.toggle('hidden', !isDark);
-
-    darkModeToggle.addEventListener('click', () => {
-        const isCurrentlyDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('color-theme', isCurrentlyDark ? 'dark' : 'light');
-        sunIcon.classList.toggle('hidden');
-        moonIcon.classList.toggle('hidden');
-    });
-}
 
 function handleMobileMenu() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');

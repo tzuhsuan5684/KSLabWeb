@@ -9,6 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -31,9 +36,6 @@
                 <a href="location.html" class="hover:text-blue-600 dark:hover:text-blue-400">實驗室位置</a>
             </div>
             <div class="flex items-center">
-                <button id="dark-mode-toggle" class="mr-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
-                    <i class="fas fa-sun"></i><i class="fas fa-moon hidden"></i>
-                </button>
                 <button id="mobile-menu-button" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
@@ -151,4 +153,3 @@
     <script src="assets/js/script.js"></script>
 </body>
 </html>
-
