@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人工智慧與知識系統實驗室 | 實驗室計畫</title>
+    <meta name="description" content="人工智慧與知識系統實驗室 (KS Lab) 參與之研究計畫與產學合作項目。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                <i class="fas fa-brain mr-2"></i>KS Lab
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400">首頁</a>
+                <a href="news.html" class="hover:text-blue-600 dark:hover:text-blue-400">公告</a>
+                <a href="projects.html" class="text-blue-600 dark:text-blue-400 font-semibold">實驗室計畫</a>
+                <a href="research-areas.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究方向</a>
+                <a href="systems.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究系統</a>
+                <a href="team.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究團隊</a>
+                <a href="publications.html" class="hover:text-blue-600 dark:hover:text-blue-400">研究成果</a>
+                <a href="location.html" class="hover:text-blue-600 dark:hover:text-blue-400">實驗室位置</a>
+            </div>
+            <div class="flex items-center">
+                <button id="dark-mode-toggle" class="mr-4 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon hidden"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
+            <a href="index.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">首頁</a>
+            <a href="news.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">公告</a>
+            <a href="projects.html" class="block py-2 px-6 text-blue-600 dark:text-blue-400">實驗室計畫</a>
+            <a href="research-areas.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究方向</a>
+            <a href="systems.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究系統</a>
+            <a href="team.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究團隊</a>
+            <a href="publications.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">研究成果</a>
+            <a href="location.html" class="block py-2 px-6 hover:bg-slate-100 dark:hover:bg-slate-700">實驗室位置</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Page Header -->
+        <section class="bg-slate-100 dark:bg-slate-800 py-12">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl font-bold text-slate-800 dark:text-white mb-4">實驗室計畫</h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400">實驗室參與之研究計畫與產學合作項目</p>
+            </div>
+        </section>
+
+        <!-- Projects List Section -->
+        <section class="py-16 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6">
+                <!-- Projects Container (由 JS 動態載入) -->
+                <div id="projects-container" class="max-w-5xl mx-auto space-y-6">
+                    <!-- Loading placeholder -->
+                    <div class="text-center text-slate-500">載入中...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 dark:bg-slate-950 text-slate-300 mt-auto">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">KS Lab</h4>
+                    <p>Artificial Intelligence & Knowledge System Lab</p>
+                    <p class="text-sm text-slate-400 mt-2">國立中央大學</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">快速連結</h4>
+                    <ul>
+                        <li><a href="projects.html" class="hover:text-blue-400">實驗室計畫</a></li>
+                        <li><a href="research-areas.html" class="hover:text-blue-400">研究方向</a></li>
+                        <li><a href="systems.html" class="hover:text-blue-400">研究系統</a></li>
+                        <li><a href="team.html" class="hover:text-blue-400">研究團隊</a></li>
+                        <li><a href="publications.html" class="hover:text-blue-400">研究成果</a></li>
+                        <li><a href="location.html" class="hover:text-blue-400">實驗室位置</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-2">聯絡我們</h4>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>桃園市中壢區中大路300號</p>
+                    <p><i class="fas fa-envelope mr-2"></i><a href="mailto:jhyang@csie.ncu.edu.tw" class="hover:text-blue-400">jhyang@csie.ncu.edu.tw</a></p>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 mt-8 pt-6 text-center text-sm text-slate-500">
+                <p>&copy; <span id="current-year"></span> KS Lab. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-xl transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
