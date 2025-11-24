@@ -329,43 +329,62 @@ function renderTeamMembers(gridId, members) {
     `}).join('');
 }
 
-// ===== UPDATED FUNCTION: Renders all alumni in a single grid =====
+// ===== UPDATED FUNCTION: Renders alumni separated by degree =====
 function renderAlumni(containerId, alumniData) {
     const container = document.getElementById(containerId);
-    if (!container || !alumniData || alumniData.length === 0) {
+    if (!container || !alumniData) {
         const mainContainer = document.getElementById('alumni-container');
         if(mainContainer) mainContainer.style.display = 'none';
         return;
     }
 
-    // 2. Clear previous content
+    // Clear previous content
     container.innerHTML = '';
 
-    // 3. Create a single grid for all alumni
-    const grid = document.createElement('div');
-    grid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8";
-
-    grid.innerHTML = alumniData.map(member => {
-        return `
-        <div class="team-member-card text-center bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md flex flex-col h-full hover:shadow-lg transition-shadow duration-300">
-            <h4 class="text-xl font-bold mb-3 text-slate-800 dark:text-slate-100">${member.name}</h4>
-            
-            <div class="flex-grow flex flex-col justify-center mb-4">
-                <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">現職</p>
-                <p class="font-semibold text-blue-600 dark:text-blue-400 text-lg">${member.company}</p>
+    // Helper function to create alumni cards
+    const createAlumniCards = (members) => {
+        if (!members || members.length === 0) return '';
+        return members.map(member => `
+            <div class="team-member-card text-center bg-white dark:bg-slate-800 p-8 rounded-xl shadow-md flex flex-col justify-center items-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <h4 class="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">${member.name}</h4>
+                
+                <div class="w-full">
+                    <p class="text-xs uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">現職</p>
+                    <p class="font-medium text-blue-600 dark:text-blue-400 text-base leading-relaxed">${member.company}</p>
+                </div>
             </div>
+        `).join('');
+    };
 
-            ${member.email ? `
-            <div class="mt-auto pt-3 border-t border-slate-200 dark:border-slate-700">
-                <a href="mailto:${member.email}" class="text-sm text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors inline-flex items-center break-all">
-                    <i class="fas fa-envelope mr-2"></i>${member.email}
-                </a>
-            </div>` : ''}
-        </div>
+    // Render PhD alumni section
+    if (alumniData.phd && alumniData.phd.length > 0) {
+        const phdSection = document.createElement('div');
+        phdSection.className = 'alumni-section mb-12';
+        phdSection.innerHTML = `
+            <h3 class="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-100 border-b-2 border-blue-500 pb-2">
+                <i class="fas fa-graduation-cap mr-2 text-blue-500"></i>博士班畢業
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                ${createAlumniCards(alumniData.phd)}
+            </div>
         `;
-    }).join('');
+        container.appendChild(phdSection);
+    }
 
-    container.appendChild(grid);
+    // Render Master alumni section
+    if (alumniData.master && alumniData.master.length > 0) {
+        const masterSection = document.createElement('div');
+        masterSection.className = 'alumni-section';
+        masterSection.innerHTML = `
+            <h3 class="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-100 border-b-2 border-blue-500 pb-2">
+                <i class="fas fa-user-graduate mr-2 text-blue-500"></i>碩士班畢業
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                ${createAlumniCards(alumniData.master)}
+            </div>
+        `;
+        container.appendChild(masterSection);
+    }
 }
 
 
