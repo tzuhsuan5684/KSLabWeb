@@ -5,33 +5,45 @@
     "titles": [
       {
         "icon": "fas fa-user-tie",
-        "text": "國立中央大學 資訊工程學系 講座教授 (2018~)"
+        "text": "國立中央大學 資訊工程學系 講座教授"
       },
       {
         "icon": "fas fa-user-tie",
-        "text": "國立中央大學 研發長 兼 高教深耕執行長 (2021~)"
+        "text": "前國立中央大學 研發長 兼 高教深耕執行長"
       },
       {
         "icon": "fas fa-user-tie",
-        "text": "前教育部資訊及科技教育司司長 (2013~2014)"
+        "text": "前教育部資訊及科技教育司司長"
       },
       {
         "icon": "fas fa-user-tie",
-        "text": "前國科會資訊教育學門召集人 (2012)"
+        "text": "前國科會資訊教育學門召集人"
       }
     ],
     "honors": [
       {
         "icon": "fas fa-award",
-        "text": "國科會 傑出研究獎 (2010, 2017)"
+        "text": "教育部 114年「師鐸獎」"
       },
       {
         "icon": "fas fa-award",
-        "text": "教育部 教育專業獎章 (2015)"
+        "text": "教育部 第69屆「學術獎 」"
       },
       {
         "icon": "fas fa-award",
-        "text": "中國電機工程學會會士 (2024)"
+        "text": "國科會 傑出研究獎"
+      },
+      {
+        "icon": "fas fa-award",
+        "text": "資訊月 傑出資訊人才獎"
+      },
+      {
+        "icon": "fas fa-award",
+        "text": "中研院Future Earth Taipei 年度貢獻獎"
+      },
+      {
+        "icon": "fas fa-award",
+        "text": "中國電機工程學會會士"
       }
     ],
     "email": "jhyang@csie.ncu.edu.tw",
