@@ -1,5 +1,69 @@
 [
   {
+    "year": 2025,
+    "category": "論文",
+    "title": "Improving students’ learning performance and summarization ability through a Generative AI-enabled Chatbot",
+    "authors": "Huang, A.Y.Q., Lin C.-C., Su, S.-Y., Yen, R.-Y., & Yang, S.J.H.*",
+    "source": "Educational Technology & Society, 28(3), 82-111",
+    "link": "https://doi.org/10.30191/ETS.202507_28(3).SP07"
+  },
+  {
+    "year": 2025,
+    "category": "論文",
+    "title": "The impact of GenAI-enabled coding hints on students' programming performance and cognitive load in an SRL-based Python course",
+    "authors": "Huang, A.Y.Q., Lin, C.-Y., Su, S.-Y., & Yang, S.J.H.*",
+    "source": "British Journal of Educational Technology, 28(3), 82-111",
+    "link": "https://doi.org/10.1111/bjet.13589"
+  },
+  {
+    "year": 2025,
+    "category": "論文",
+    "title": "Exploring the significance of medical humanities in shaping internship performance: insights from curriculum categories",
+    "authors": "Chen, C. T., Huang, A. Y. Q., Hou, P. H., Lin, J. Y., Chen, H. H., Huang, S. S., & Yang, S. J. H.",
+    "source": "Medical Education Online, 30(1)",
+    "link": "https://doi.org/10.1080/10872981.2024.2444282"
+  },
+  {
+    "year": 2025,
+    "category": "論文",
+    "title": "A 0.8 V Low-Power Wide-Tuning-Range CMOS VCO for 802.11ac and IoT C-Band Applications",
+    "authors": "Hsu J-J, Lin Y-C, Yang SJH.",
+    "source": "Journal of Low Power Electronics and Applications. 15(2):32",
+    "link": "https://doi.org/10.3390/jlpea15020032"
+  },
+  {
+    "year": 2024,
+    "category": "論文",
+    "title": "Transforming Outreach Effects: The Impact of Generative AI on Inclusive Education Branding and Sustainability",
+    "authors": "Guspian, I., Lin, C.-C., Huang, A.Y.Q., & Yang, S.J.H.*",
+    "source": "Journal of Education For Sustainable Innovation 2(2), 170-179",
+    "link": ""
+  },
+  {
+    "year": 2024,
+    "category": "論文",
+    "title": "DNA of learning behaviors: A novel approach of learning performance prediction by NLP",
+    "authors": "Lin, C.-C., Cheng, E.S.J., Huang, A.Y.Q., & Yang, S.J.H.*",
+    "source": "Computers and Education: Artificial Intelligence, 6, 100227",
+    "link": ""
+  },
+  {
+    "year": 2024,
+    "category": "論文",
+    "title": "Using machine learning to identify key subject categories predicting the pre-clerkship and clerkship performance: 8-year cohort study",
+    "authors": "Huang, S.S, Lin Y.F., Huang A.Y., Lin J.Y., Yang YY*, Lin SM, Lin WY, Huang PH, Chen TY, Yang, S.J.H.*, Lirng JF, Chen CH.",
+    "source": "Journal of the Chinese Medical Association, 87(6):609-614",
+    "link": "https://doi.org/10.1097/JCMA.0000000000001097"
+  },
+  {
+    "year": 2024,
+    "category": "論文",
+    "title": "Learning pathways composed of core subjects with features of reducing cognitive load have better learning outcomes",
+    "authors": "Huang, S.S.; Huang, AY, ...Yang, Y.Y.*, Yang, S.J.H.*, et. al.",
+    "source": "Journal of the Chinese Medical Association, 87(7): 714-721",
+    "link": "https://doi.org/10.1097/JCMA.0000000000001116"
+  },
+  {
     "year": 2023,
     "category": "論文",
     "title": "Guest Editorial: Human-centered AI in Education: Augment Human Intelligence with Machine Intelligence",

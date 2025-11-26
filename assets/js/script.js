@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('news-container')) {
             loadNewsData(4);
         }
+        if (document.getElementById('activities-container')) {
+            loadActivitiesData();
+        }
     }
     // 公告頁面
     if (page === 'news.html') {
@@ -82,16 +85,16 @@ async function loadNewsData(limit = null) {
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         let newsData = await response.json();
         console.log('News data loaded:', newsData);
-        
+
         if (limit && typeof limit === 'number') {
             newsData = newsData.slice(0, limit);
         }
-        
+
         renderNews(newsData);
     } catch (error) {
         console.error("無法載入公告資料:", error);
         const container = document.getElementById('news-container');
-        if(container) container.innerHTML = `<p class="text-center text-red-500">無法載入公告資料：${error.message}</p>`;
+        if (container) container.innerHTML = `<p class="text-center text-red-500">無法載入公告資料：${error.message}</p>`;
     }
 }
 
@@ -109,7 +112,7 @@ function renderNews(newsData) {
         '榮譽': 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300',
         '招生': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
         '演講': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
-        '活動': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+        '學術': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
         '其他': 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
     };
 
@@ -128,7 +131,7 @@ function renderNews(newsData) {
             <div class="content grow">
                 <div class="block group">
                     <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1">
-                        ${item.title}
+                        ${item.link ? `<a href="${item.link}" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">${item.title}</a>` : item.title}
                     </h3>
                     <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
                         ${item.summary}
@@ -138,6 +141,55 @@ function renderNews(newsData) {
         </div>
         `;
     }).join('');
+}
+
+async function loadActivitiesData() {
+    const container = document.getElementById('activities-container');
+    if (!container) return;
+
+    try {
+        const response = await fetch('data/activities.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const activitiesData = await response.json();
+        renderActivities(activitiesData);
+    } catch (error) {
+        console.error("無法載入活動資料:", error);
+        container.innerHTML = `<div class="pl-6"><p class="text-red-500">無法載入活動資料</p></div>`;
+    }
+}
+
+function renderActivities(data) {
+    const container = document.getElementById('activities-container');
+    if (!container) return;
+
+    if (data.length === 0) {
+        container.innerHTML = '<div class="pl-6"><p class="text-slate-500">目前沒有近期活動。</p></div>';
+        return;
+    }
+
+    container.innerHTML = data.map((item, index) => `
+        <div class="relative pl-6 group">
+            <!-- Timeline Dot -->
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-slate-800 bg-slate-300 dark:bg-slate-600 group-hover:bg-green-500 transition-colors shadow-sm"></div>
+            
+            <!-- Content -->
+            <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start">
+                <div class="date shrink-0 w-24 pt-0.5">
+                    <span class="text-sm font-mono text-slate-500 dark:text-slate-400 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                        ${item.date}
+                    </span>
+                </div>
+                <div class="activity-content pb-1">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                        ${item.link ? `<a href="${item.link}" target="_blank" class="hover:underline">${item.title} <i class="fas fa-external-link-alt text-xs ml-1 opacity-70"></i></a>` : item.title}
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        ${item.description}
+                    </p>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
 
 // --- 實驗室計畫頁面功能 (projects.html) ---
@@ -206,7 +258,7 @@ async function loadTeamData() {
         renderTeamMembers('postdocs-grid', data.postdocs);
         renderTeamMembers('assistants-grid', data.assistants);
         renderTeamMembers('phd-students-grid', data.phd_students);
-        
+
         if (data.master_students) {
             renderTeamMembers('master-second-year-grid', data.master_students.second_year);
             renderTeamMembers('master-first-year-grid', data.master_students.first_year);
@@ -221,7 +273,7 @@ async function loadTeamData() {
     } catch (error) {
         console.error("無法載入團隊資料:", error);
         const mainContent = document.querySelector('main');
-        if(mainContent) {
+        if (mainContent) {
             mainContent.innerHTML = `<p class="text-center text-red-500 col-span-full">無法載入團隊資料。請檢查檔案路徑是否正確，或嘗試在網頁伺服器上運行。</p>`;
         }
     }
@@ -257,7 +309,7 @@ function renderProfessor(professor) {
 
     const titlesHTML = professor.titles.map(t => `<li><i class="${t.icon} fa-fw mr-2 text-blue-500"></i>${t.text}</li>`).join('');
     const honorsHTML = professor.honors.map(h => `<li><i class="${h.icon} fa-fw mr-2 text-yellow-500"></i>${h.text}</li>`).join('');
-    
+
     const positionClass = professor.img_position ? `object-position-${professor.img_position}` : '';
 
     section.innerHTML = `
@@ -291,15 +343,15 @@ function renderProfessor(professor) {
 function renderTeamMembers(gridId, members) {
     const grid = document.getElementById(gridId);
     const section = grid ? grid.closest('section') : null;
-    
+
     if (!grid || !section) return;
 
     if (!members || members.length === 0) {
         section.style.display = 'none';
         return;
     }
-    
-    section.style.display = ''; 
+
+    section.style.display = '';
     grid.innerHTML = members.map(member => {
         const positionClass = member.img_position ? `object-position-${member.img_position}` : '';
         return `
@@ -334,7 +386,7 @@ function renderAlumni(containerId, alumniData) {
     const container = document.getElementById(containerId);
     if (!container || !alumniData) {
         const mainContainer = document.getElementById('alumni-container');
-        if(mainContainer) mainContainer.style.display = 'none';
+        if (mainContainer) mainContainer.style.display = 'none';
         return;
     }
 
@@ -390,14 +442,14 @@ function renderAlumni(containerId, alumniData) {
 
 // --- 研究成果頁面功能 (publications.html) ---
 
-let allPublications = []; 
+let allPublications = [];
 
 async function loadPublicationsData() {
     try {
         const response = await fetch('data/publications.json');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         allPublications = await response.json();
-        
+
         populateFilters(allPublications);
         renderPublications(allPublications);
         setupPublicationEventListeners();
@@ -405,7 +457,7 @@ async function loadPublicationsData() {
     } catch (error) {
         console.error("無法載入研究成果資料:", error);
         const mainContent = document.querySelector('main');
-        if(mainContent) mainContent.innerHTML = `<p class="text-center text-red-500">無法載入研究成果資料，請稍後再試。</p>`;
+        if (mainContent) mainContent.innerHTML = `<p class="text-center text-red-500">無法載入研究成果資料，請稍後再試。</p>`;
     }
 }
 
@@ -428,19 +480,19 @@ function renderPublications(data) {
     const noResults = document.getElementById('no-publications-found');
     if (!container || !noResults) return;
 
-    container.innerHTML = ''; 
+    container.innerHTML = '';
 
     if (data.length === 0) {
         noResults.classList.remove('hidden');
         return;
     }
-    
+
     noResults.classList.add('hidden');
 
     container.innerHTML = data.map(item => {
         const hasLink = item.link && item.link.trim() !== '';
-        
-        const titleHtml = hasLink 
+
+        const titleHtml = hasLink
             ? `<a href="${item.link}" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">${item.title}</a>`
             : item.title;
 
@@ -506,14 +558,14 @@ function exportToCsv() {
     // 簡單起見，直接匯出當前篩選後的資料 (如果需要完全對應畫面可見性，需追蹤 filteredData)
     // 這裡我們重新執行一次篩選邏輯來獲取當前資料，或者直接使用全域變數 (如果我們有存 filteredData)
     // 為了簡單，我們重新讀取 filter 的值來過濾
-    
+
     const yearFilter = document.getElementById('filter-year');
     const selectedYear = yearFilter ? yearFilter.value : 'all';
 
     const dataToExport = allPublications.filter(item => {
         return (selectedYear === 'all' || item.year.toString() === selectedYear);
     });
-    
+
     let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
     csvContent += "標題,作者,年份,類別,出處,連結\n";
 
