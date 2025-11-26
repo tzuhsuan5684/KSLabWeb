@@ -3,19 +3,41 @@
     "name": "楊鎮華 教授",
     "image": "assets/images/team/jhyang.jpg",
     "titles": [
-      { "icon": "fas fa-user-tie", "text": "國立中央大學 資訊工程學系 講座教授 (2018~)" },
-      { "icon": "fas fa-user-tie", "text": "國立中央大學 研發長 兼 高教深耕執行長 (2021~)" },
-      { "icon": "fas fa-user-tie", "text": "前教育部資訊及科技教育司司長 (2013~2014)" },
-      { "icon": "fas fa-user-tie", "text": "前國科會資訊教育學門召集人 (2012)" }
+      {
+        "icon": "fas fa-user-tie",
+        "text": "國立中央大學 資訊工程學系 講座教授 (2018~)"
+      },
+      {
+        "icon": "fas fa-user-tie",
+        "text": "國立中央大學 研發長 兼 高教深耕執行長 (2021~)"
+      },
+      {
+        "icon": "fas fa-user-tie",
+        "text": "前教育部資訊及科技教育司司長 (2013~2014)"
+      },
+      {
+        "icon": "fas fa-user-tie",
+        "text": "前國科會資訊教育學門召集人 (2012)"
+      }
     ],
     "honors": [
-      { "icon": "fas fa-award", "text": "國科會 傑出研究獎 (2010, 2017)" },
-      { "icon": "fas fa-award", "text": "教育部 教育專業獎章 (2015)" },
-      { "icon": "fas fa-award", "text": "中國電機工程學會會士 (2024)" }
+      {
+        "icon": "fas fa-award",
+        "text": "國科會 傑出研究獎 (2010, 2017)"
+      },
+      {
+        "icon": "fas fa-award",
+        "text": "教育部 教育專業獎章 (2015)"
+      },
+      {
+        "icon": "fas fa-award",
+        "text": "中國電機工程學會會士 (2024)"
+      }
     ],
     "email": "jhyang@csie.ncu.edu.tw",
     "office": "工程五館 E5-A408",
     "ext": "03-4227151-35308",
+    "website": "https://sites.google.com/view/Stephen-JH-Yang",
     "img_position": "top"
   },
   "postdocs": [

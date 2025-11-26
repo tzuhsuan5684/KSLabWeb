@@ -68,16 +68,18 @@
     <main>
         <!-- Hero Section -->
         <section
-            class="relative h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden pb-32">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-600 z-0">
-                <div class="absolute inset-0 bg-black opacity-30"></div>
-                <!-- Background pattern -->
-                <div class="absolute inset-0 opacity-10"
-                    style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+            class="relative h-[80vh] flex items-center justify-center text-center text-white overflow-hidden pb-32">
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 z-0">
+                <div
+                    class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 animate-pulse">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
             </div>
             <div class="container mx-auto px-6 z-10 relative">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-down tracking-tight">人工智慧與知識系統實驗室</h1>
-                <p class="text-lg md:text-2xl max-w-3xl mx-auto text-blue-100 animate-fade-in-up mb-8 leading-relaxed">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-down tracking-tight drop-shadow-lg">
+                    人工智慧與知識系統實驗室</h1>
+                <p
+                    class="text-lg md:text-2xl max-w-3xl mx-auto text-blue-100 animate-fade-in-up mb-8 leading-relaxed drop-shadow-md">
                     致力於探索人工智慧的前沿，透過機器學習與自然語言處理技術，<br class="hidden md:block">開創智慧教育與永續發展的無限可能。</p>
 
                 <div class="animate-bounce mt-12">
@@ -99,10 +101,10 @@
         </section>
 
         <!-- 最新公告 Section (Floating Card Style) -->
-        <section id="news-section" class="relative z-20 -mt-12 pb-16 px-4">
+        <section id="news-section" class="relative z-20 -mt-24 pb-16 px-4">
             <div class="container mx-auto">
                 <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-6xl mx-auto border-t-4 border-blue-500">
+                    class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-2xl shadow-2xl p-8 md:p-12 max-w-6xl mx-auto border-t-4 border-blue-500 ring-1 ring-slate-900/5">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                         <!-- Left Column: Recent Activities (Timeline) -->
                         <div class="lg:col-span-5">
@@ -173,12 +175,12 @@
                             我們致力於探索人工智慧、機器學習以及自然語言處理等方向。透過學習分析實現精準教育，並利用先進的自然語言模型，讓機器能讀懂人類語言，協助使用者完成複雜任務。
                         </p>
                     </div>
-                    <div class="md:w-1/2 relative">
+                    <div class="md:w-1/2 relative group">
                         <div
-                            class="absolute -inset-4 bg-blue-200 dark:bg-blue-900/30 rounded-xl transform rotate-3 opacity-50">
+                            class="absolute -inset-4 bg-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-900/40 dark:to-purple-900/40 rounded-2xl transform rotate-3 opacity-70 group-hover:rotate-6 transition-transform duration-500">
                         </div>
                         <img src="assets\images\events\Ogata1.jpg" alt="實驗室照片"
-                            class="relative rounded-lg shadow-xl w-full h-auto transform transition-transform hover:scale-[1.02] duration-300">
+                            class="relative rounded-xl shadow-2xl w-full h-auto transform transition-transform group-hover:scale-[1.01] duration-500 border border-white/20">
                     </div>
                 </div>
 
@@ -250,42 +252,62 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <!-- Card 1: AI -->
                         <div
-                            class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-blue-500">
+                            class="feature-card group bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700 relative overflow-hidden">
                             <div
-                                class="w-14 h-14 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 mb-6">
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                            </div>
+                            <div
+                                class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fas fa-robot"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">人工智慧</h3>
+                            <h3
+                                class="text-xl font-bold mb-3 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                人工智慧</h3>
                             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">發展核心演算法，建構更聰明、更可靠的智慧系統。</p>
                         </div>
                         <!-- Card 2: Machine Learning -->
                         <div
-                            class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-green-500">
+                            class="feature-card group bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700 relative overflow-hidden">
                             <div
-                                class="w-14 h-14 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-2xl text-green-600 dark:text-green-400 mb-6">
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                            </div>
+                            <div
+                                class="w-14 h-14 bg-green-50 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-2xl text-green-600 dark:text-green-400 mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fas fa-cogs"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">機器學習</h3>
+                            <h3
+                                class="text-xl font-bold mb-3 text-slate-800 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                                機器學習</h3>
                             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">從數據中學習模式，實現精準預測與決策自動化。</p>
                         </div>
                         <!-- Card 3: NLP -->
                         <div
-                            class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-purple-500">
+                            class="feature-card group bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700 relative overflow-hidden">
                             <div
-                                class="w-14 h-14 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center text-2xl text-purple-600 dark:text-purple-400 mb-6">
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                            </div>
+                            <div
+                                class="w-14 h-14 bg-purple-50 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center text-2xl text-purple-600 dark:text-purple-400 mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fas fa-language"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">自然語言處理</h3>
+                            <h3
+                                class="text-xl font-bold mb-3 text-slate-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                自然語言處理</h3>
                             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">讓機器理解與生成人類語言，縮短人機溝通的距離。</p>
                         </div>
                         <!-- Card 4: Education -->
                         <div
-                            class="feature-card bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-orange-500">
+                            class="feature-card group bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-100 dark:border-slate-700 relative overflow-hidden">
                             <div
-                                class="w-14 h-14 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center text-2xl text-orange-600 dark:text-orange-400 mb-6">
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left">
+                            </div>
+                            <div
+                                class="w-14 h-14 bg-orange-50 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-2xl text-orange-600 dark:text-orange-400 mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <h3 class="text-xl font-bold mb-3 text-slate-800 dark:text-white">智慧教育</h3>
+                            <h3
+                                class="text-xl font-bold mb-3 text-slate-800 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                                智慧教育</h3>
                             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">結合學習分析與AI，打造個人化、永續的學習環境。</p>
                         </div>
                     </div>
@@ -303,56 +325,60 @@
                     <p class="mt-4 text-slate-600 dark:text-slate-400">研究之餘的精彩時刻與團隊活動</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Photo 1 (Large) -->
                     <div
-                        class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-xl shadow-lg cursor-pointer">
+                        class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer">
                         <!-- 請替換 src 為實際圖片路徑 -->
                         <img src="assets\images\events\Ogata2.jpg" alt="Lab Meeting"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <span class="text-white font-semibold text-lg">京大 Ogata 老師來訪</span>
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                            <div
+                                class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="text-white font-bold text-xl block mb-1">京大 Ogata 老師來訪</span>
+                                <span class="text-white/80 text-sm">國際學術交流</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Photo 2 -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer h-64 lg:h-auto">
                         <img src="assets\images\events\talk.jpg" alt="Activity"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white font-semibold">實驗室研討</span>
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg border-b-2 border-white pb-1">實驗室研討</span>
                         </div>
                     </div>
 
                     <!-- Photo 3 -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer h-64 lg:h-auto">
                         <img src="assets\images\events\M1.jpg" alt="Graduation"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white font-semibold">合照</span>
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg border-b-2 border-white pb-1">合照</span>
                         </div>
                     </div>
 
                     <!-- Photo 4 -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer h-64 lg:h-auto">
                         <img src="assets\images\events\conference.jpg" alt="Conference"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white font-semibold">研討會發表</span>
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg border-b-2 border-white pb-1">研討會發表</span>
                         </div>
                     </div>
 
                     <!-- Photo 5 -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 lg:h-auto">
+                    <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer h-64 lg:h-auto">
                         <img src="assets\images\events\eat.jpg" alt="Party"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white font-semibold">聚餐</span>
+                            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg border-b-2 border-white pb-1">聚餐</span>
                         </div>
                     </div>
                 </div>
@@ -366,27 +392,39 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Link to Research Areas -->
                     <a href="research-areas.html"
-                        class="group block bg-slate-100 dark:bg-slate-800 rounded-lg p-8 text-center hover:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300">
-                        <i
-                            class="fas fa-flask text-4xl mb-4 text-blue-500 group-hover:text-white transition-colors duration-300"></i>
-                        <h3 class="text-xl font-semibold group-hover:text-white">研究方向</h3>
-                        <p class="text-slate-600 dark:text-slate-400 group-hover:text-blue-100 mt-2">了解我們的核心研究領域</p>
+                        class="group block bg-white dark:bg-slate-800 rounded-2xl p-8 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="w-16 h-16 mx-auto bg-blue-50 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-flask text-3xl text-blue-500 dark:text-blue-400"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            研究方向</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">了解我們的核心研究領域</p>
                     </a>
                     <!-- Link to Team -->
                     <a href="team.html"
-                        class="group block bg-slate-100 dark:bg-slate-800 rounded-lg p-8 text-center hover:bg-green-500 dark:hover:bg-green-600 transition-all duration-300">
-                        <i
-                            class="fas fa-users text-4xl mb-4 text-green-500 group-hover:text-white transition-colors duration-300"></i>
-                        <h3 class="text-xl font-semibold group-hover:text-white">研究團隊</h3>
-                        <p class="text-slate-600 dark:text-slate-400 group-hover:text-green-100 mt-2">認識實驗室的優秀成員</p>
+                        class="group block bg-white dark:bg-slate-800 rounded-2xl p-8 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="w-16 h-16 mx-auto bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-users text-3xl text-green-500 dark:text-green-400"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                            研究團隊</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">認識實驗室的優秀成員</p>
                     </a>
                     <!-- Link to Publications -->
                     <a href="publications.html"
-                        class="group block bg-slate-100 dark:bg-slate-800 rounded-lg p-8 text-center hover:bg-purple-500 dark:hover:bg-purple-600 transition-all duration-300">
-                        <i
-                            class="fas fa-book-open text-4xl mb-4 text-purple-500 group-hover:text-white transition-colors duration-300"></i>
-                        <h3 class="text-xl font-semibold group-hover:text-white">研究成果</h3>
-                        <p class="text-slate-600 dark:text-slate-400 group-hover:text-purple-100 mt-2">查看我們的學術發表與專案</p>
+                        class="group block bg-white dark:bg-slate-800 rounded-2xl p-8 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="w-16 h-16 mx-auto bg-purple-50 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-book-open text-3xl text-purple-500 dark:text-purple-400"></i>
+                        </div>
+                        <h3
+                            class="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                            研究成果</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">查看我們的學術發表與專案</p>
                     </a>
                 </div>
             </div>

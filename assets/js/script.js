@@ -307,33 +307,101 @@ function renderProfessor(professor) {
     const section = document.getElementById('professor-section');
     if (!section || !professor) return;
 
-    const titlesHTML = professor.titles.map(t => `<li><i class="${t.icon} fa-fw mr-2 text-blue-500"></i>${t.text}</li>`).join('');
-    const honorsHTML = professor.honors.map(h => `<li><i class="${h.icon} fa-fw mr-2 text-yellow-500"></i>${h.text}</li>`).join('');
+    const titlesHTML = professor.titles.map(t => `
+        <li class="flex items-start">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-3 mt-0.5">
+                <i class="${t.icon} text-blue-600 dark:text-blue-400 text-sm"></i>
+            </span>
+            <span class="text-slate-700 dark:text-slate-300 leading-relaxed py-1">${t.text}</span>
+        </li>
+    `).join('');
+
+    const honorsHTML = professor.honors.map(h => `
+        <li class="flex items-start group">
+            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900/50 flex items-center justify-center mr-3 mt-0.5 group-hover:bg-yellow-200 dark:group-hover:bg-yellow-900 transition-colors">
+                <i class="${h.icon} text-yellow-600 dark:text-yellow-400 text-sm"></i>
+            </span>
+            <span class="text-slate-700 dark:text-slate-300 leading-relaxed py-1 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors">${h.text}</span>
+        </li>
+    `).join('');
 
     const positionClass = professor.img_position ? `object-position-${professor.img_position}` : '';
 
     section.innerHTML = `
-        <h2 class="text-3xl font-bold text-center mb-8">指導教授</h2>
-        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-            <div class="flex-shrink-0 w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-blue-200 dark:border-blue-700 overflow-hidden">
-                <img src="${professor.image}" alt="${professor.name}" class="w-full h-full object-cover ${positionClass}">
-            </div>
-            <div class="text-left w-full">
-                <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400">${professor.name}</h3>
-                <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                    <div>
-                        <h4 class="font-semibold text-lg mb-2 text-slate-800 dark:text-slate-100">主要職務</h4>
-                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 list-none pl-0">${titlesHTML}</ul>
+        <h2 class="text-3xl font-bold text-center mb-12 relative inline-block left-1/2 transform -translate-x-1/2">
+            <span class="relative z-10">指導教授</span>
+            <div class="absolute bottom-0 left-0 w-full h-3 bg-blue-200 dark:bg-blue-900/50 -z-0 opacity-60 transform -rotate-1"></div>
+        </h2>
+        
+        <div class="relative bg-white dark:bg-slate-800 rounded-3xl shadow-xl overflow-hidden max-w-6xl mx-auto border border-slate-100 dark:border-slate-700">
+            <!-- Decorative Background Elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-50 dark:bg-purple-900/20 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col lg:flex-row">
+                <!-- Left Column: Image -->
+                <div class="lg:w-1/3 p-8 lg:p-12 flex flex-col items-center justify-center bg-slate-50/50 dark:bg-slate-800/50 lg:border-r border-slate-100 dark:border-slate-700">
+                    <div class="relative w-64 h-64 lg:w-72 lg:h-72 mb-8 group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <div class="relative w-full h-full rounded-full border-4 border-white dark:border-slate-700 shadow-2xl overflow-hidden">
+                            <img src="${professor.image}" alt="${professor.name}" class="w-full h-full object-cover ${positionClass} transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-semibold text-lg mb-2 text-slate-800 dark:text-slate-100">榮譽獎項</h4>
-                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 list-none pl-0">${honorsHTML}</ul>
+                    
+                    <div class="text-center w-full space-y-4">
+                        <h3 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                            ${professor.name}
+                        </h3>
+                        
+                        <div class="flex flex-col gap-3 text-sm text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900/50 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                            <a href="mailto:${professor.email}" class="flex items-center justify-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-1">
+                                <i class="fas fa-envelope mr-2.5 text-blue-500"></i>${professor.email}
+                            </a>
+                            ${professor.office ? `
+                            <div class="flex items-center justify-center p-1 border-t border-slate-100 dark:border-slate-700 pt-2">
+                                <i class="fas fa-map-marker-alt mr-2.5 text-red-500"></i>${professor.office}
+                            </div>` : ''}
+                            ${professor.ext ? `
+                            <div class="flex items-center justify-center p-1 border-t border-slate-100 dark:border-slate-700 pt-2">
+                                <i class="fas fa-phone mr-2.5 text-green-500"></i>分機: ${professor.ext}
+                            </div>` : ''}
+                            ${professor.website ? `
+                            <div class="flex items-center justify-center p-1 border-t border-slate-100 dark:border-slate-700 pt-2">
+                                <a href="${professor.website}" target="_blank" class="flex items-center hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                    <i class="fas fa-globe mr-2.5 text-indigo-500"></i>個人網頁
+                                </a>
+                            </div>` : ''}
+                        </div>
                     </div>
                 </div>
-                <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-slate-600 dark:text-slate-300">
-                    <p><i class="fas fa-envelope fa-fw mr-2"></i><a href="mailto:${professor.email}" class="hover:text-blue-500">${professor.email}</a></p>
-                    ${professor.office ? `<p><i class="fas fa-map-marker-alt fa-fw mr-2"></i>${professor.office}</p>` : ''}
-                    ${professor.ext ? `<p><i class="fas fa-phone fa-fw mr-2"></i>分機: ${professor.ext}</p>` : ''}
+
+                <!-- Right Column: Info -->
+                <div class="lg:w-2/3 p-8 lg:p-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Titles Section -->
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-1 h-8 bg-blue-500 rounded-full"></div>
+                                <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100">主要職務</h4>
+                            </div>
+                            <ul class="space-y-4">
+                                ${titlesHTML}
+                            </ul>
+                        </div>
+
+                        <!-- Honors Section -->
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-1 h-8 bg-yellow-500 rounded-full"></div>
+                                <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100">榮譽獎項</h4>
+                            </div>
+                            <div class="bg-yellow-50/50 dark:bg-yellow-900/10 rounded-2xl p-6 border border-yellow-100 dark:border-yellow-900/30">
+                                <ul class="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                                    ${honorsHTML}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -397,12 +465,38 @@ function renderAlumni(containerId, alumniData) {
     const createAlumniCards = (members) => {
         if (!members || members.length === 0) return '';
         return members.map(member => `
-            <div class="team-member-card text-center bg-white dark:bg-slate-800 p-8 rounded-xl shadow-md flex flex-col justify-center items-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <h4 class="text-2xl font-bold mb-4 text-slate-800 dark:text-slate-100">${member.name}</h4>
+            <div class="group relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-slate-100 dark:border-slate-700 overflow-hidden">
+                <!-- Top Gradient Bar -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 
-                <div class="w-full">
-                    <p class="text-xs uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">現職</p>
-                    <p class="font-medium text-blue-600 dark:text-blue-400 text-base leading-relaxed">${member.company}</p>
+                <!-- Decorative Background -->
+                <div class="absolute -right-6 -top-6 w-24 h-24 bg-blue-50 dark:bg-slate-700/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+
+                <div class="relative z-10">
+                    <!-- Header -->
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 dark:bg-slate-700 flex items-center justify-center text-blue-500 dark:text-blue-400 mb-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-user-graduate text-xl"></i>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xl font-bold text-center text-slate-800 dark:text-slate-100 mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        ${member.name}
+                    </h4>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-center text-sm">
+                            <i class="fas fa-building mt-1 mr-2 text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <span class="font-medium text-slate-600 dark:text-slate-300 text-center">${member.company}</span>
+                        </div>
+                        
+                        ${member.job_title ? `
+                        <div class="flex items-center justify-center text-sm">
+                            <i class="fas fa-briefcase mr-2 text-slate-400 group-hover:text-purple-500 transition-colors"></i>
+                            <span class="text-slate-500 dark:text-slate-400">${member.job_title}</span>
+                        </div>
+                        ` : ''}
+                    </div>
                 </div>
             </div>
         `).join('');
