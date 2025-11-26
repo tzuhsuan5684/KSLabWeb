@@ -6,7 +6,14 @@ body {
 }
 
 /* 自定義深色模式過渡效果 */
-body, .bg-white, .bg-slate-50, .bg-slate-100, .bg-slate-800, .bg-slate-900, .text-slate-800, .text-slate-200 {
+body,
+.bg-white,
+.bg-slate-50,
+.bg-slate-100,
+.bg-slate-800,
+.bg-slate-900,
+.text-slate-800,
+.text-slate-200 {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -16,6 +23,7 @@ body, .bg-white, .bg-slate-50, .bg-slate-100, .bg-slate-800, .bg-slate-900, .tex
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -27,6 +35,7 @@ body, .bg-white, .bg-slate-50, .bg-slate-100, .bg-slate-800, .bg-slate-900, .tex
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -39,7 +48,8 @@ body, .bg-white, .bg-slate-50, .bg-slate-100, .bg-slate-800, .bg-slate-900, .tex
 
 .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out 0.3s forwards;
-    opacity: 0; /* 初始狀態為透明 */
+    opacity: 0;
+    /* 初始狀態為透明 */
 }
 
 /* 特色卡片 hover 效果 */
@@ -55,44 +65,65 @@ body, .bg-white, .bg-slate-50, .bg-slate-100, .bg-slate-800, .bg-slate-900, .tex
 }
 
 /* 為每個區塊設置不同的延遲 */
-.research-section:nth-child(2) { animation-delay: 0.1s; }
-.research-section:nth-child(3) { animation-delay: 0.2s; }
-.research-section:nth-child(4) { animation-delay: 0.3s; }
+.research-section:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.research-section:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.research-section:nth-child(4) {
+    animation-delay: 0.3s;
+}
 
 
 /* 團隊成員卡片 hover 效果 */
 .team-member-card {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 .team-member-card:hover {
     transform: translateY(-5px);
     filter: brightness(1.05);
 }
+
 .team-member-card img {
     transition: transform 0.3s ease;
 }
+
 .team-member-card:hover img {
     transform: scale(1.05);
 }
 
 /* 團隊頁面篩選按鈕樣式 */
 .filter-btn {
-    background-color: #f1f5f9; /* bg-slate-100 */
-    color: #334155; /* text-slate-700 */
+    background-color: #f1f5f9;
+    /* bg-slate-100 */
+    color: #334155;
+    /* text-slate-700 */
     transition: all 0.3s ease;
 }
+
 .dark .filter-btn {
-    background-color: #334155; /* dark:bg-slate-700 */
-    color: #e2e8f0; /* dark:text-slate-200 */
+    background-color: #334155;
+    /* dark:bg-slate-700 */
+    color: #e2e8f0;
+    /* dark:text-slate-200 */
 }
+
 .filter-btn.active-filter {
-    background-color: #3b82f6; /* bg-blue-600 */
+    background-color: #3b82f6;
+    /* bg-blue-600 */
     color: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
+
 .dark .filter-btn.active-filter {
-    background-color: #60a5fa; /* dark:bg-blue-400 */
-    color: #1e293b; /* dark:text-slate-900 */
+    background-color: #60a5fa;
+    /* dark:bg-blue-400 */
+    color: #1e293b;
+    /* dark:text-slate-900 */
 }
 
 
@@ -100,18 +131,22 @@ body, .bg-white, .bg-slate-50, .bg-slate-100, .bg-slate-800, .bg-slate-900, .tex
 #back-to-top {
     transition: opacity 0.3s, visibility 0.3s;
 }
+
 #back-to-top.hidden {
     opacity: 0;
     visibility: hidden;
 }
-#back-to-top.flex { /* 使用 flex 替代 block 以便置中 */
+
+#back-to-top.flex {
+    /* 使用 flex 替代 block 以便置中 */
     display: flex;
     opacity: 1;
     visibility: visible;
 }
 
 /* 確保在 Tailwind 配置中 html 和 body 有高度 */
-html, body {
+html,
+body {
     height: 100%;
 }
 
