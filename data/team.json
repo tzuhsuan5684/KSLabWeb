@@ -213,32 +213,38 @@
       {
         "name": "林建昌",
         "company": "台灣應用材料股份有限公司",
-        "email": "cclin3123@gmail.com"
+        "email": "cclin3123@gmail.com",
+        "job_title": "處長"
       },
       {
         "name": "楊子奇",
         "company": "陽明交通大學 教育研究所",
-        "email": "tcyang_@nycu.edu.tw"
+        "email": "tcyang_@nycu.edu.tw",
+        "job_title": "副教授"
       },
       {
         "name": "蔣旭政",
-        "company": "臺師大 大傳所",
-        "email": "owen.lu.academic@gmail.com"
+        "company": "臺灣師範大學 大傳所",
+        "email": "owen.lu.academic@gmail.com",
+        "job_title": "副教授"
       },
       {
         "name": "蘇育生",
         "company": "中正大學 資工系",
-        "email": "owen.lu.academic@gmail.com"
+        "email": "owen.lu.academic@gmail.com",
+        "job_title": "副教授"
       },
       {
         "name": "黃信嘉",
         "company": "國立高雄科技大學 金融系",
-        "email": "sjhuang@nkust.edu.tw"
+        "email": "sjhuang@nkust.edu.tw",
+        "job_title": "副教授"
       },
       {
         "name": "呂欣澤",
         "company": "政治大學",
-        "email": "owen.lu.academic@gmail.com"
+        "email": "owen.lu.academic@gmail.com",
+        "job_title": "助理教授"
       }
     ],
     "master": [
@@ -251,6 +257,86 @@
         "name": "江昱賢",
         "company": "台積電",
         "email": "ab3223323@gmail.com"
+      },
+      {
+        "name": "李信鋌",
+        "company": "IBM",
+        "email": ""
+      },
+      {
+        "name": "林文涵",
+        "company": "台積電",
+        "email": "jerry491123@gmail.com"
+      },
+      {
+        "name": "林彤恩",
+        "company": "台積電",
+        "email": ""
+      },
+      {
+        "name": "林佳榆",
+        "company": "台積電",
+        "email": "Amylin9003@gmail.com"
+      },
+      {
+        "name": "林季陽",
+        "company": "Amazon Web Services",
+        "email": "xuunnis123@gmail.com"
+      },
+      {
+        "name": "康景翔",
+        "company": "台積電",
+        "email": ""
+      },
+      {
+        "name": "張介韋",
+        "company": "台積電",
+        "email": "jwz.willy@gmail.com"
+      },
+      {
+        "name": "張覺意",
+        "company": "台積電",
+        "email": ""
+      },
+      {
+        "name": "傅孟淳",
+        "company": "台積電",
+        "email": ""
+      },
+      {
+        "name": "游中愷",
+        "company": "台積電",
+        "email": "chungkaiyu12936@gmail.com"
+      },
+      {
+        "name": "廖健宏",
+        "company": "研華科技",
+        "email": ""
+      },
+      {
+        "name": "劉冠杰",
+        "company": "台積電",
+        "email": "cc5954772@gmail.com"
+      },
+      {
+        "name": "劉學逸",
+        "company": "台積電",
+        "email": ""
+      },
+      {
+        "name": "陳昱蓉",
+        "company": "台積電",
+        "email": "jczj16202326@gmail.com"
+      },
+      {
+        "name": "蔡之禮",
+        "company": "聯詠科技",
+        "email": "dan860202@gmail.com"
+      },
+      {
+        "name": "顏若軒",
+        "company": "群聯電子",
+        "email": ""
       },
       {
         "name": "林佳榆",

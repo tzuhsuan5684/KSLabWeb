@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
 
     <!-- Header / Navbar -->
@@ -65,11 +67,13 @@
         <!-- Filter Buttons -->
         <div class="mb-12 text-center">
             <div id="team-filter-buttons" class="inline-flex rounded-lg shadow-sm" role="group">
-                <button data-filter="current" class="filter-btn active-filter px-6 py-3 text-lg font-semibold rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 z-10">
+                <button data-filter="current"
+                    class="filter-btn active-filter px-6 py-3 text-lg font-semibold rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 z-10">
                     <i class="fas fa-users mr-2"></i>實驗室成員
                 </button>
-                <button data-filter="alumni" class="filter-btn px-6 py-3 text-lg font-semibold rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 z-10">
-                    <i class="fas fa-graduation-cap mr-2"></i>畢業成員
+                <button data-filter="alumni"
+                    class="filter-btn px-6 py-3 text-lg font-semibold rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 z-10">
+                    <i class="fas fa-graduation-cap mr-2"></i>畢業學長姊
                 </button>
             </div>
         </div>
@@ -78,32 +82,38 @@
         <div id="current-members-container" class="space-y-12">
             <section id="postdocs-section">
                 <h2 class="text-2xl font-bold border-l-4 border-blue-500 pl-4 mb-6">博士後研究員</h2>
-                <div id="postdocs-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                <div id="postdocs-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                </div>
             </section>
-            
+
             <section id="assistants-section">
                 <h2 class="text-2xl font-bold border-l-4 border-green-500 pl-4 mb-6">專任助理</h2>
-                <div id="assistants-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                <div id="assistants-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                </div>
             </section>
 
             <section id="phd-students-section">
                 <h2 class="text-2xl font-bold border-l-4 border-purple-500 pl-4 mb-6">博士生</h2>
-                <div id="phd-students-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                <div id="phd-students-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                </div>
             </section>
 
             <section id="master-second-year-section">
                 <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-4 mb-6">碩二</h2>
-                <div id="master-second-year-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                <div id="master-second-year-grid"
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
             </section>
 
             <section id="master-first-year-section">
                 <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-4 mb-6">碩一</h2>
-                <div id="master-first-year-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                <div id="master-first-year-grid"
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
             </section>
-            
+
             <section id="master-zero-year-section">
                 <h2 class="text-2xl font-bold border-l-4 border-orange-500 pl-4 mb-6">碩零</h2>
-                <div id="master-zero-year-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+                <div id="master-zero-year-grid"
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
             </section>
         </div>
 
@@ -138,7 +148,8 @@
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-2">聯絡我們</h4>
                     <p><i class="fas fa-map-marker-alt mr-2"></i>桃園市中壢區中大路300號</p>
-                    <p><i class="fas fa-envelope mr-2"></i><a href="mailto:jhyang@csie.ncu.edu.tw" class="hover:text-blue-400">jhyang@csie.ncu.edu.tw</a></p>
+                    <p><i class="fas fa-envelope mr-2"></i><a href="mailto:jhyang@csie.ncu.edu.tw"
+                            class="hover:text-blue-400">jhyang@csie.ncu.edu.tw</a></p>
                 </div>
             </div>
             <div class="border-t border-slate-700 mt-8 pt-6 text-center text-sm text-slate-500">
@@ -147,9 +158,11 @@
         </div>
     </footer>
 
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-xl transition-opacity duration-300">
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-xl transition-opacity duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

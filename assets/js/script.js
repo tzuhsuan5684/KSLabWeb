@@ -86,6 +86,15 @@ async function loadNewsData(limit = null) {
         let newsData = await response.json();
         console.log('News data loaded:', newsData);
 
+        // Sort: pinned items first, then by date
+        newsData.sort((a, b) => {
+            // If one is pinned and the other isn't, pinned comes first
+            if (a.pinned && !b.pinned) return -1;
+            if (!a.pinned && b.pinned) return 1;
+            // If both have same pinned status, maintain original order (already sorted by date in JSON)
+            return 0;
+        });
+
         if (limit && typeof limit === 'number') {
             newsData = newsData.slice(0, limit);
         }
@@ -131,7 +140,7 @@ function renderNews(newsData) {
             <div class="content grow">
                 <div class="block group">
                     <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1">
-                        ${item.link ? `<a href="${item.link}" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">${item.title}</a>` : item.title}
+                        ${item.pinned ? '<i class="fas fa-thumbtack text-red-500 mr-2 transform rotate-45" title="置頂公告"></i>' : ''}${item.link ? `<a href="${item.link}" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">${item.title}</a>` : item.title}
                     </h3>
                     <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
                         ${item.summary}
